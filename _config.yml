@@ -1,1 +1,50 @@
-theme: jekyll-theme-tactile
+# Site Info
+title: dkimitsa's RoboVM
+tagline: 'Few cents about my commits'
+description: 'Here I post technical details about changed done to <a href="https://github.com/MobiVM/robovm">OSS RoboVM</a>.'
+url: http://dkimitsa.github.io
+#logo: '/public/logo.png'
+
+# Site configurations
+gems:
+  - jekyll-paginate
+markdown: kramdown
+kramdown:
+  input: GFM
+excerpt_separator: "<!-- more -->"
+sass:
+  style: compressed
+  sass_dir: _scss
+paginate: 5
+paginate_path: '/blog/page:num'
+permalink: pretty
+
+version: 1.0.0
+
+# About/contact
+author:
+  name: Demyan Kimitsa
+  #description:
+  gravatar: dc6c234f42df474606ba0765e54640f4 # md5 hash of your email address
+  contact:
+    linkedin:  https://www.linkedin.com/in/dkimitsa
+    github:    https://github.com/dkimitsa
+    # facebook:  <hide>
+    # twitter:   <hide>
+    email:     mailto:demyan.kimitsa@gmail.com
+
+# Navigation (2nd level links supported)
+nav:
+  Home:
+    - '/'
+  Tags:
+    - '/blog/tags/'
+  RoboVM home:
+    - 'https://github.com/MobiVM/robovm'
+
+# Where are tags and categories displayed
+tag_page: '/blog/tags/'
+
+# Puglins
+#google_analytics_token: 'UA-00000000-1' # leave blank if you don't want google analytics
+disqus_short_name: 'dkimitsa-github-io' # leave blank if you don't want disqus
