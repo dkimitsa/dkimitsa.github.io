@@ -3,7 +3,7 @@ title: dkimitsa's RoboVM
 tagline: 'Few cents about my commits'
 description: 'Here I post technical details about changed done to <a href="https://github.com/MobiVM/robovm">OSS RoboVM</a>.'
 url: http://dkimitsa.github.io
-#logo: '/public/logo.png'
+logo: '/public/logo.png'
 
 # Site configurations
 gems:

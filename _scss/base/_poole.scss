@@ -185,6 +185,8 @@ pre code {
 .highlight {
   margin-bottom: 1rem;
   border-radius: 4px;
+  max-height: 500px;
+  overflow-y: auto;
 }
 .highlight pre {
   margin-bottom: 0;
