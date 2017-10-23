@@ -29,7 +29,7 @@ Create project folder structure similar to one used in robopods:
 Download [admob 7.24.1](https://developers.google.com/admob/ios/download) and unpack to folder where yaml file will be created (e.g. ios/src/main/bro-gen)
 
 ***Create simple yaml file to start with***
-To start empty yaml file that refers framework and list entity stubs to be created, save it as googlemobileadssdk.yaml
+To start empty yaml file that refers framework and list entity stubs to be created, save it as `googlemobileadssdk.yaml`
 ```yaml
 package: org.robovm.pods.google
 include: [foundation, uikit, storekit]
@@ -75,7 +75,7 @@ Few comments about yaml:
 Parameters:
 - ../java/ output folder where for generated files
 
-***Important note about output folder.*** when generating bro-gen either updates existing file in output folder (e.g. uses it as template) or create new from template. Here is how template looks like:
+***Important note about output folder.*** when generating bro-gen either updates existing file in output folder (e.g. uses it as template) or create new from template. Here is how template `templates/class_template.java` looks like:
 ```java
 __LICENSE__
 package org.robovm.foo;
@@ -121,7 +121,7 @@ All generate code will be put between corresponding anchors. e.g. bro-gen will j
 }
 ```
 
-*Back to script run.* It will produce bunch of warning messages that something is not known and lot of enums will go to FIXME class as constants (will handle this as next steps). What is useful it is suggestions output that list all data found in framework but missing in yaml:
+*Back to script run.* It will produce bunch of warning messages that something is not known and lot of enums will go to FIXME class as constants (will handle this as next steps). What is useful it is suggestions output that list all data found in framework but missing in yaml. Console output of `bro-gen`:
 ```yaml
 # YAML file pottentialy missing entries suggestions
 
@@ -435,8 +435,8 @@ in general suggestions are about:
 
 Just copy all these prepared entries to yaml, fixing method name on the go.
 There is lot of stuff in FIXME so just lets ignore it for while.
-One special moment about error codes that delivered through NSError code: enum GADErrorCode shall be marked as nserror one and domain variable shall go to it as well.
-**TODO: add reference to demystified post about NSError subclasses here**
+One special moment about error codes that delivered through NSError code: enum GADErrorCode shall be marked as nserror one and domain variable shall go to it as well. More details in the [post]({{ site.baseurl }}{% post_url 2017-10-23-bro-gen-nserror-case %}). Modifications to `googlemobileadssdk.yaml`:
+
 ```yaml
 enums:
     GADErrorCode: {nserror: true, prefix: kGADError}
@@ -447,7 +447,7 @@ values:
         name: getClassDomain
 ```
 
-Also it is time to first look through FIXME class to pick up values. Just skip enums as these got there due unknown enums. Find similar looking values, *cross check* in headers and combine values to classes/unums:
+Also it is time to first look through FIXME class to pick up values. Just skip enums as these got there due unknown enums. Find similar looking values, *cross check* in headers and combine values to classes/enums. Modifications to `googlemobileadssdk.yaml`:
 ```yaml
 values:
 ...
@@ -477,7 +477,7 @@ functions:
 ```
 *no need to try cover everything in one yaml update, if miss anything just check FIXME again and make another round*
 
-*Round 1*. Updated yaml is almost complete (most of stuff were just copied from suggestions):
+*Round 1*. Updated yaml is almost complete (most of stuff were just copied from suggestions). Now `googlemobileadssdk.yaml` contains:
 ```yaml
 package: org.robovm.pods.google
 include: [foundation, uikit, storekit]
@@ -770,7 +770,7 @@ constants:
         name: 'Constant__#{g[0]}'
 ```
 
-Suggestion list is tiny this time (just one initializer that was not picked by bro-gen first run):
+Suggestion list is tiny this time (just one initializer that was not picked by bro-gen first run). Console output of `bro-gen`:
 ```yaml
 # classes to be updated:
 classes:
@@ -781,7 +781,7 @@ classes:
                 name: initWithURL$scale$
 ```
 
-And FIXME.java is smaller as well
+And `FIXME.java` contains less of entries as well:
 ```java
 @GlobalValue(symbol="kGADSimulatorID", optional=true)
 public static native NSObject Value__GADSimulatorID();
@@ -791,7 +791,7 @@ public static native String Value__GADNativeCustomTemplateAdMediaViewKey();
 public static native String Value__GADCustomEventParametersServer();
 ```
 
-Fixing values:
+Fixing values in `googlemobileadssdk.yaml`:
 ```yaml
 values:
 ...
@@ -808,7 +808,7 @@ values:
         name: '#{g[0]}'
 ```
 
-*Round 2*. Regenerating
+*Round 2*. Regenerating. Content of `googlemobileadssdk.yaml` now as bellow:
 ```yaml
 package: org.robovm.pods.google
 include: [foundation, uikit, storekit]
@@ -1117,7 +1117,7 @@ constants:
 ```
 
 Looks ok, *trying to compile*. Bunch of errors:
-1. cannot find symbol GADAdLoaderAdType, it is typedef to NSString in objc source, fixing this with private typedef
+1. cannot find symbol GADAdLoaderAdType, it is typedef to NSString in objc source, fixing this with private typedef in `googlemobileadssdk.yaml`
 ```
 private_typedefs:
     GADAdLoaderAdType: NSString
@@ -1130,17 +1130,17 @@ values:
         name: '#{g[0]}'
 ```
 
-2. cannot find symbol CGPoint -- need to refer coregraphics
+2. cannot find symbol CGPoint -- need to refer coregraphics in `googlemobileadssdk.yaml`
 >include: [foundation, uikit, storekit, coregraphics]
 
 3. GADRequestError: Error:(47, 30) java: no suitable constructor found for NSError(no arguments).
-Google adds own subclass for NSError, ok, lets just remove default constructor it complaints on (as user will not create this kind of object by itself).
+Google adds own subclass for NSError, ok, lets just remove default constructor it complaints about (as user will not create this kind of object by itself). Update to `googlemobileadssdk.yaml`:
 ```yaml
 classes:
     GADRequestError: {skip_def_constructor: true}
 ```
 
-Final yaml:
+Final `googlemobileadssdk.yaml`:
 ```yaml
 package: org.robovm.pods.google
 include: [foundation, uikit, storekit, coregraphics]
