@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'bugfix #230: ERROR ITMS-90087: "Unsupported Architectures. The executable contains unsupported architectures [i386]'
+title: 'bugfix #230: Interface Builder: CGPoint/CGSize/CGRect/NSRange are not supported, wrong obj-c class name for empty @CustomClass()'
 tags: [fix, 'interface builder']
 ---
 **History** [IB integrator generates wrong class name for empty @CustomClass, doesn't support structs in IBInspectable](https://github.com/MobiVM/robovm/issues/230)  
