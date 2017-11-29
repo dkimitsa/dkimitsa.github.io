@@ -34,4 +34,4 @@ newSignalAction	sigaction
 
 The only option is to run application without debugger attached. It is possible to be done by removing "Debug executable" flag in scheme settings (XCode menu: Product -> Scheme -> Edit Scheme -> Info Tab -> Uncheck "Debug executable"). Which means you can't debug while using framework that produces NPE at java side.
 
-Corresponding (bug report at LLVM.org)[https://bugs.llvm.org/show_bug.cgi?id=22868]
+Corresponding [bug report at LLVM.org](https://bugs.llvm.org/show_bug.cgi?id=22868)
