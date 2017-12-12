@@ -5,6 +5,11 @@ description: 'Here I post technical details about changed done to <a href="https
 url: http://dkimitsa.github.io
 logo: '/public/logo.png'
 
+# support me config
+support_me_logo: '/public/become_a_patron_button.png'
+support_me_title: Support my work at Patreon
+support_me_link: 'https://www.patreon.com/bePatron?c=1359039'
+
 # Site configurations
 gems:
   - jekyll-paginate
@@ -30,7 +35,7 @@ author:
     linkedin:  https://www.linkedin.com/in/dkimitsa
     github:    https://github.com/dkimitsa
     # facebook:  <hide>
-    # twitter:   <hide>
+    twitter:   https://twitter.com/DemyanKimitsa
     email:     mailto:demyan.kimitsa@gmail.com
 
 # Navigation (2nd level links supported)
