@@ -194,7 +194,7 @@ NSLog("%d",calc.result()
 
 # Creating framework step-by-step
 
-Source code is available at my [robo-samples](https://github.com/dkimitsa/robovm-samples/framework) github repository.
+Source code is available at my [robo-samples](https://github.com/dkimitsa/robovm-samples/tree/alt/framework) github repository.
 
 Start with Framework RoboVM project:  
 ![]({{ "/assets/2018/01/12/robovm-idea-new-framework-project.png" | absolute_url}})
