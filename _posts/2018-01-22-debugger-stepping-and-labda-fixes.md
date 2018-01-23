@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'bugfix: Debugger - broken step over and crashed when using labda'
+title: 'bugfix: Debugger - broken step over and crashed when using lambda'
 tags: [debugger, fix]
 ---
 **Fix** [PR #257](https://github.com/MobiVM/robovm/pull/257)  
