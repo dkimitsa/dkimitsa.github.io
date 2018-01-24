@@ -37,7 +37,7 @@ Windows: [iTunes](https://www.apple.com/lae/itunes/download/) has to be installe
    [linux-x86_64](https://goo.gl/MU7tMW)  
    [linux-x86 /not tested/](https://goo.gl/TemZDA)  
    - change dir to `~/.robovm/platform/` (create if missing) and unpack package.
-3. Provide Xcode files. .tbl and device images are needed to run code. Its not allowed to distribute these files due copyright moments.
+3. **UPDATE: there is [homemade SDK available]({{ site.baseurl }}{% post_url 2018-01-24-homemade-ios-sdk-for-linux-windows-robovm %}).**  Provide Xcode files. .tbl and device images are needed to run code. Its not allowed to distribute these files due copyright moments.
    - But you should be able to make a backup from your legal copy of Xcode with following script:
 ```bash
 rsync -avmL --include '*/' \
