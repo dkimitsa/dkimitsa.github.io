@@ -121,18 +121,20 @@ public final class Api {
     // this protocol is main class protocol that root entry point to SDK
     interface SampleFramework extends ObjCProtocol {
         ...
-        @Method Calculator newCalculator();
+        @Method Calculator createCalculator();
     }
 }
 
 public class SampleFrameworkImpl extends NSObject implements Api.SampleFramework {
     ...
     @Override
-    public Api.Calculator newCalculator() {
+    public Api.Calculator createCalculator() {
         return new CalculatorImpl();
     }
 }
 ```
+
+***IMPORTANT:*** do not name methods that create Java object with name that begins with “alloc”, “new”, “copy”, or “mutableCopy” otherwise you end up with EXC_BAD_ACCESS. Name `newCalculator` really bad [read this post]({{ site.baseurl }}{% post_url 2018-01-31-not-a-bug-exc-bad-access %}).
 
 Declaration of these API in framework ObjectiveC header will looks as bellow:
 ```objc
