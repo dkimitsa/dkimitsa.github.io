@@ -3,6 +3,8 @@ layout: post
 title: 'not a bug: EXC_BAD_ACCESS if object created with method whose name begins with “alloc”, “new”, “copy”, or “mutableCopy”'
 tags: [fix, target-framework, arc, gc]
 ---
+**UPDATED** with workaround if "new" prefix is still required.
+
 Native ObjectiveC/Swift code that uses shared code [RoboVM code as Framework]({{ site.baseurl }}{% post_url 2018-01-16-tutorial-writing-framework-improved %}) could ends in following:
 ![]({{ "/assets/2018/01/31/exc-bad-access.png" | absolute_url}})
 
@@ -40,7 +42,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        calculator = MyFrameworkInstance().calculator()
+        calculator = MyFrameworkInstance().newCalculator()
         // Do any additional setup after loading the view, typically from a nib.
     }
 }
@@ -64,5 +66,19 @@ And these object are connected to each other. If any side got released and destr
 
 Once `retainCount()` is 1 it means that there is no object at Native side keeping reference to it and only Java counterpart is retaining it. And once Java counterpart is GC-ed it also `release()` the native part causing it destruction.
 
+## Making a case valid for RoboVM
+The best approach would be not use these prefixes especially if developer pure Java/Android and has not knowledge in not used now manual reference counting at iOS side. But if it is required to have the name with one of the prefix listed above object has to be extra retained on Java side. Consider following snippet:
+```java
+@Override
+public Api.Calculator newCalculator() {
+    CalculatorImpl calc = new CalculatorImpl();
+    calc.retain();
+    return calc;
+}
+```
+
+It will return object with retainCount() set to 2 which will not lead to EXC_BAD_ACCESS. And object will be released once java counterpart is released.
+
 ## Bottom line
 In this bright example ARC considers that code owns the object and retained it. RoboVM saw retain count decreased to 1 and considers that it not needed anymore and destroyed it GC cycle.
+Object returned by a method whose name begins with “alloc”, “new”, “copy”, or “mutableCopy” (for example, alloc, newObject, or mutableCopy) will not be maintained by ARC. RoboVM developer shall consider this fact.

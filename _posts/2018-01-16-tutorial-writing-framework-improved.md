@@ -134,7 +134,7 @@ public class SampleFrameworkImpl extends NSObject implements Api.SampleFramework
 }
 ```
 
-***IMPORTANT:*** do not name methods that create Java object with name that begins with “alloc”, “new”, “copy”, or “mutableCopy” otherwise you end up with EXC_BAD_ACCESS. Name `newCalculator` really bad [read this post]({{ site.baseurl }}{% post_url 2018-01-31-not-a-bug-exc-bad-access %}).
+***IMPORTANT:*** do not name methods that create Java object with name that begins with “alloc”, “new”, “copy”, or “mutableCopy” otherwise you end up with EXC_BAD_ACCESS. Name `newCalculator` really bad. [Read this post]({{ site.baseurl }}{% post_url 2018-01-31-not-a-bug-exc-bad-access %}) for reasons and possible workaround to if name has to start with `new`.
 
 Declaration of these API in framework ObjectiveC header will looks as bellow:
 ```objc
