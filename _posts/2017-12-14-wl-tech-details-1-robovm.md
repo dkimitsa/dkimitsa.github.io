@@ -6,10 +6,10 @@ tags: ["linux windows", "technote"]
 This post start series of technical notes that would help developers to understand changes were done to RoboVM. Table of content:
 
 1. making RoboVM cross-platform
-2. Codesign
-3. Linker and tools
-4. actool and
-5. xib2nib
+2. [xib2nib]({{ site.baseurl }}{% post_url 2018-02-13-wl-tech-details-2-robovm %})
+3. Codesign
+4. Linker and tools
+5. actool and
 6. Pain and tears :)
 
 <!-- more -->

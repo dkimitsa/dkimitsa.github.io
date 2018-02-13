@@ -1,0 +1,549 @@
+
+<html>
+<head>
+<style>
+    ul.collapsibleList { position: relative; list-style: none; margin-left: 0; padding-left: 1.2em; }
+    .collapsibleList li{ cursor : auto; }
+    li.collapsibleList:before{ padding-right: 5px; position: absolute; left: 0;}
+    li.collapsibleListOpen{}
+    li.collapsibleListOpen:before{cursor: pointer; content: "\2610"; padding-right: 5px; position: absolute; left: 0; }
+    li.collapsibleListClosed{}
+    li.collapsibleListClosed:before{cursor:pointer; content: "\2612"; padding-right: 5px; position: absolute; left: 0;}
+</style>
+</head>
+
+<script>
+/*
+CollapsibleLists.js
+An object allowing lists to dynamically expand and collapse
+Created by Kate Morley - http://code.iamkate.com/ - and released under the terms
+of the CC0 1.0 Universal legal code:
+http://creativecommons.org/publicdomain/zero/1.0/legalcode
+*/
+const CollapsibleLists = (function(){
+  // Makes all lists with the class 'collapsibleList' collapsible. The
+  // parameter is:
+  //
+  // doNotRecurse - true if sub-lists should not be made collapsible
+  function apply(doNotRecurse){
+    [].forEach.call(document.getElementsByTagName('ul'), node => {
+      if (node.classList.contains('collapsibleList')){
+        applyTo(node, true);
+        if (!doNotRecurse){
+          [].forEach.call(node.getElementsByTagName('ul'), subnode => {
+            subnode.classList.add('collapsibleList')
+          });
+        }
+      }
+    })
+  }
+
+  // Makes the specified list collapsible. The parameters are:
+  //
+  // node         - the list element
+  // doNotRecurse - true if sub-lists should not be made collapsible
+  function applyTo(node, doNotRecurse){
+    [].forEach.call(node.getElementsByTagName('li'), li => {
+      if (!doNotRecurse || node === li.parentNode){
+        // dkimitsa: commented out to allow text selection
+        //li.style.userSelect       = 'none';
+        //li.style.MozUserSelect    = 'none';
+        //li.style.msUserSelect     = 'none';
+        //li.style.WebkitUserSelect = 'none';
+        li.addEventListener('click', handleClick.bind(null, li));
+        toggle(li);
+      }
+    });
+  }
+
+  // Makes the specified list collapsible. The parameters are:
+  //
+  // node         - the list element
+  // doNotRecurse - true if sub-lists should not be made collapsible
+  function makeOpen(nodeId){
+    li = document.getElementById(nodeId);
+    animLi = li
+    animLi.style.backgroundColor = 'yellow';
+    var t = setTimeout(function(){
+       animLi.style.backgroundColor = 'white';
+    },600);
+    while (li) {
+        li = li.parentNode;
+        if (li.nodeName == 'LI')
+            switchState(li, open)
+    }
+  }
+
+  // Handles a click. The parameter is:
+  //
+  // node - the node for which clicks are being handled
+  function handleClick(node, e){
+    // if there is any selection -- don't handle click to allow text copy 
+    if (window.getSelection().toString().length > 0)
+      return;
+
+    let li = e.target;
+    while (li.nodeName !== 'LI'){
+      li = li.parentNode;
+    }
+
+    if (li === node){
+      if (e.pageX > li.getBoundingClientRect().left)  
+        return;
+      toggle(node);
+    }
+  }
+
+  // Opens or closes the unordered list elements directly within the
+  // specified node. The parameter is:
+  //
+  // node - the node containing the unordered list elements
+  function toggle(node){
+    const open = node.classList.contains('collapsibleListClosed');
+    switchState(node, open)
+  }
+
+  function switchState(node, open) {
+    const uls  = node.getElementsByTagName('ul');
+    [].forEach.call(uls, ul => {
+      let li = ul;
+      while (li.nodeName !== 'LI'){
+        li = li.parentNode;
+      }
+
+      if (li === node){
+        ul.style.display = (open ? 'block' : 'none');
+      }
+    });
+
+    node.classList.remove('collapsibleListOpen');
+    node.classList.remove('collapsibleListClosed');
+    if (uls.length > 0){
+      node.classList.add('collapsibleList' + (open ? 'Open' : 'Closed'));
+    }
+  }
+
+  return {apply, applyTo, makeOpen};
+})();
+
+</script>
+<body>
+<ul class="collapsibleList">
+    
+    <li>NSObject1
+         <ul>
+             <li>UINibAccessibilityConfigurationsKey = []</li>
+             <li>UINibConnectionsKey = []</li>
+             <li>UINibKeyValuePairsKey = []</li>
+             <li>UINibObjectsKey = [
+                 <ul>
+                     <li>proxy: IBFilesOwner</li>
+                     <li>proxy: IBFirstResponder</li>
+                     <li><a href="#UIView1" onclick="CollapsibleLists.makeOpen('UIView1')">@</a>UIView1
+                             <ul>
+                                 <li>UIAutoresizeSubviews = True</li>
+                                 <li>UIAutoresizingMask = 18</li>
+                                 <li>UIBackgroundColor = <a href="#UIColor2" onclick="CollapsibleLists.makeOpen('UIColor2')">@</a>UIColor2
+                                         <ul>
+                                             <li>NSColorSpace = 2</li>
+                                             <li>NSRGB = 1 1 1</li>
+                                             <li>UIAlpha = 1.0</li>
+                                             <li>UIBlue = 1.0</li>
+                                             <li>UIColorComponentCount = 4</li>
+                                             <li>UIGreen = 1.0</li>
+                                             <li>UIRed = 1.0</li>
+                                         </ul>
+                                 </li>
+                                 <li>UIBounds = (0.0, 0.0, 600.0, 600.0)</li>
+                                 <li>UICenter = (300.0, 300.0)</li>
+                                 <li>UIDeepDrawRect = True</li>
+                                 <li>UIOpaque = True</li>
+                                 <li>UISubviews = [
+                                     <ul>
+                                         <li><a href="#UILabel1" onclick="CollapsibleLists.makeOpen('UILabel1')">@</a>UILabel1
+                                                 <ul>
+                                                     <li>UIAutoresizeSubviews = True</li>
+                                                     <li>UIAutoresizingMask = 36</li>
+                                                     <li>UIBounds = (0.0, 0.0, 375.0, 21.0)</li>
+                                                     <li>UICenter = (187.5, 10.5)</li>
+                                                     <li>UIContentMode = 7</li>
+                                                     <li>UIDeepDrawRect = True</li>
+                                                     <li>UIDisableUpdateTextColorOnTraitCollectionChange = False</li>
+                                                     <li>UIFont = <a href="#UIFont1" onclick="CollapsibleLists.makeOpen('UIFont1')">@</a>UIFont1
+                                                             <ul>
+                                                                 <li>NSName = .SFUIText</li>
+                                                                 <li>NSSize = 17.0</li>
+                                                                 <li>UIFontDescriptor = <a href="#UIFontDescriptor1" onclick="CollapsibleLists.makeOpen('UIFontDescriptor1')">@</a>UIFontDescriptor1</li>
+                                                                 <li>UIFontMaximumPointSizeAfterScaling = 0.0</li>
+                                                                 <li>UIFontName = .SFUIText</li>
+                                                                 <li>UIFontPointSize = 17.0</li>
+                                                                 <li>UIFontPointSizeForScaling = 0.0</li>
+                                                                 <li>UIFontTextStyleForScaling = None</li>
+                                                                 <li>UIFontTraits = 0</li>
+                                                                 <li>UISystemFont = True</li>
+                                                             </ul>
+                                                     </li>
+                                                     <li>UIShadowOffset = (0.0, -1.0)</li>
+                                                     <li>UIText = HelloRoboVM</li>
+                                                     <li>UITextAlignment = 4</li>
+                                                     <li>UITextColor = <a href="#UIColor1" onclick="CollapsibleLists.makeOpen('UIColor1')">@</a>UIColor1
+                                                             <ul>
+                                                                 <li>NSColorSpace = 4</li>
+                                                                 <li>NSWhite = 0</li>
+                                                                 <li>UIAlpha = 1.0</li>
+                                                                 <li>UIColorComponentCount = 2</li>
+                                                                 <li>UISystemColorName = blackColor</li>
+                                                                 <li>UIWhite = 0.0</li>
+                                                             </ul>
+                                                     </li>
+                                                     <li>UIUserInteractionDisabled = True</li>
+                                                     <li>UIViewContentHuggingPriority = {251, 251}</li>
+                                                     <li>UIViewSemanticContentAttribute = 0</li>
+                                                 </ul>
+                                         </li>
+                                     </ul>
+                                 </li>
+                                 <li>UIViewSemanticContentAttribute = 0</li>
+                             </ul>
+                     </li>
+                     <li><a href="#UILabel1" onclick="CollapsibleLists.makeOpen('UILabel1')">@</a>UILabel1
+                             <ul>
+                                 <li>UIAutoresizeSubviews = True</li>
+                                 <li>UIAutoresizingMask = 36</li>
+                                 <li>UIBounds = (0.0, 0.0, 375.0, 21.0)</li>
+                                 <li>UICenter = (187.5, 10.5)</li>
+                                 <li>UIContentMode = 7</li>
+                                 <li>UIDeepDrawRect = True</li>
+                                 <li>UIDisableUpdateTextColorOnTraitCollectionChange = False</li>
+                                 <li>UIFont = <a href="#UIFont1" onclick="CollapsibleLists.makeOpen('UIFont1')">@</a>UIFont1
+                                         <ul>
+                                             <li>NSName = .SFUIText</li>
+                                             <li>NSSize = 17.0</li>
+                                             <li>UIFontDescriptor = <a href="#UIFontDescriptor1" onclick="CollapsibleLists.makeOpen('UIFontDescriptor1')">@</a>UIFontDescriptor1
+                                                     <ul>
+                                                         <li>UIFontDescriptorAttributes = {
+                                                             <ul>
+                                                                 <li>NSCTFontUIUsageAttribute = CTFontRegularUsage</li>
+                                                                 <li>NSFontSizeAttribute = 17</li>
+                                                             </ul>
+                                                         </li>
+                                                     </ul>
+                                             </li>
+                                             <li>UIFontMaximumPointSizeAfterScaling = 0.0</li>
+                                             <li>UIFontName = .SFUIText</li>
+                                             <li>UIFontPointSize = 17.0</li>
+                                             <li>UIFontPointSizeForScaling = 0.0</li>
+                                             <li>UIFontTextStyleForScaling = None</li>
+                                             <li>UIFontTraits = 0</li>
+                                             <li>UISystemFont = True</li>
+                                         </ul>
+                                 </li>
+                                 <li>UIShadowOffset = (0.0, -1.0)</li>
+                                 <li>UIText = HelloRoboVM</li>
+                                 <li>UITextAlignment = 4</li>
+                                 <li>UITextColor = <a href="#UIColor1" onclick="CollapsibleLists.makeOpen('UIColor1')">@</a>UIColor1
+                                         <ul>
+                                             <li>NSColorSpace = 4</li>
+                                             <li>NSWhite = 0</li>
+                                             <li>UIAlpha = 1.0</li>
+                                             <li>UIColorComponentCount = 2</li>
+                                             <li>UISystemColorName = blackColor</li>
+                                             <li>UIWhite = 0.0</li>
+                                         </ul>
+                                 </li>
+                                 <li>UIUserInteractionDisabled = True</li>
+                                 <li>UIViewContentHuggingPriority = {251, 251}</li>
+                                 <li>UIViewSemanticContentAttribute = 0</li>
+                             </ul>
+                     </li>
+                 </ul>
+             </li>
+             <li>UINibTopLevelObjectsKey = [
+                 <ul>
+                     <li>proxy: IBFilesOwner</li>
+                     <li>proxy: IBFirstResponder</li>
+                     <li><a href="#UIView1" onclick="CollapsibleLists.makeOpen('UIView1')">@</a>UIView1
+                             <ul>
+                                 <li>UIAutoresizeSubviews = True</li>
+                                 <li>UIAutoresizingMask = 18</li>
+                                 <li>UIBackgroundColor = <a href="#UIColor2" onclick="CollapsibleLists.makeOpen('UIColor2')">@</a>UIColor2
+                                         <ul>
+                                             <li>NSColorSpace = 2</li>
+                                             <li>NSRGB = 1 1 1</li>
+                                             <li>UIAlpha = 1.0</li>
+                                             <li>UIBlue = 1.0</li>
+                                             <li>UIColorComponentCount = 4</li>
+                                             <li>UIGreen = 1.0</li>
+                                             <li>UIRed = 1.0</li>
+                                         </ul>
+                                 </li>
+                                 <li>UIBounds = (0.0, 0.0, 600.0, 600.0)</li>
+                                 <li>UICenter = (300.0, 300.0)</li>
+                                 <li>UIDeepDrawRect = True</li>
+                                 <li>UIOpaque = True</li>
+                                 <li>UISubviews = [
+                                     <ul>
+                                         <li><a href="#UILabel1" onclick="CollapsibleLists.makeOpen('UILabel1')">@</a>UILabel1
+                                                 <ul>
+                                                     <li>UIAutoresizeSubviews = True</li>
+                                                     <li>UIAutoresizingMask = 36</li>
+                                                     <li>UIBounds = (0.0, 0.0, 375.0, 21.0)</li>
+                                                     <li>UICenter = (187.5, 10.5)</li>
+                                                     <li>UIContentMode = 7</li>
+                                                     <li>UIDeepDrawRect = True</li>
+                                                     <li>UIDisableUpdateTextColorOnTraitCollectionChange = False</li>
+                                                     <li>UIFont = <a href="#UIFont1" onclick="CollapsibleLists.makeOpen('UIFont1')">@</a>UIFont1
+                                                             <ul>
+                                                                 <li>NSName = .SFUIText</li>
+                                                                 <li>NSSize = 17.0</li>
+                                                                 <li>UIFontDescriptor = <a href="#UIFontDescriptor1" onclick="CollapsibleLists.makeOpen('UIFontDescriptor1')">@</a>UIFontDescriptor1</li>
+                                                                 <li>UIFontMaximumPointSizeAfterScaling = 0.0</li>
+                                                                 <li>UIFontName = .SFUIText</li>
+                                                                 <li>UIFontPointSize = 17.0</li>
+                                                                 <li>UIFontPointSizeForScaling = 0.0</li>
+                                                                 <li>UIFontTextStyleForScaling = None</li>
+                                                                 <li>UIFontTraits = 0</li>
+                                                                 <li>UISystemFont = True</li>
+                                                             </ul>
+                                                     </li>
+                                                     <li>UIShadowOffset = (0.0, -1.0)</li>
+                                                     <li>UIText = HelloRoboVM</li>
+                                                     <li>UITextAlignment = 4</li>
+                                                     <li>UITextColor = <a href="#UIColor1" onclick="CollapsibleLists.makeOpen('UIColor1')">@</a>UIColor1
+                                                             <ul>
+                                                                 <li>NSColorSpace = 4</li>
+                                                                 <li>NSWhite = 0</li>
+                                                                 <li>UIAlpha = 1.0</li>
+                                                                 <li>UIColorComponentCount = 2</li>
+                                                                 <li>UISystemColorName = blackColor</li>
+                                                                 <li>UIWhite = 0.0</li>
+                                                             </ul>
+                                                     </li>
+                                                     <li>UIUserInteractionDisabled = True</li>
+                                                     <li>UIViewContentHuggingPriority = {251, 251}</li>
+                                                     <li>UIViewSemanticContentAttribute = 0</li>
+                                                 </ul>
+                                         </li>
+                                     </ul>
+                                 </li>
+                                 <li>UIViewSemanticContentAttribute = 0</li>
+                             </ul>
+                     </li>
+                 </ul>
+             </li>
+             <li>UINibTraitStorageListsKey = []</li>
+             <li>UINibVisibleWindowsKey = []</li>
+         </ul>
+     </li>
+    <li>@ all objects by types [
+    <ul>
+        <li>UIColor [
+        <ul>
+            <li id='UIColor1'>UIColor1
+                 <ul>
+                     <li>NSColorSpace = 4</li>
+                     <li>NSWhite = 0</li>
+                     <li>UIAlpha = 1.0</li>
+                     <li>UIColorComponentCount = 2</li>
+                     <li>UISystemColorName = blackColor</li>
+                     <li>UIWhite = 0.0</li>
+                 </ul>
+             </li>
+            <li id='UIColor2'>UIColor2
+                 <ul>
+                     <li>NSColorSpace = 2</li>
+                     <li>NSRGB = 1 1 1</li>
+                     <li>UIAlpha = 1.0</li>
+                     <li>UIBlue = 1.0</li>
+                     <li>UIColorComponentCount = 4</li>
+                     <li>UIGreen = 1.0</li>
+                     <li>UIRed = 1.0</li>
+                 </ul>
+             </li>
+        </ul>
+        </il>
+        <li>UIFont [
+        <ul>
+            <li id='UIFont1'>UIFont1
+                 <ul>
+                     <li>NSName = .SFUIText</li>
+                     <li>NSSize = 17.0</li>
+                     <li>UIFontDescriptor = <a href="#UIFontDescriptor1" onclick="CollapsibleLists.makeOpen('UIFontDescriptor1')">@</a>UIFontDescriptor1
+                             <ul>
+                                 <li>UIFontDescriptorAttributes = {
+                                     <ul>
+                                         <li>NSCTFontUIUsageAttribute = CTFontRegularUsage</li>
+                                         <li>NSFontSizeAttribute = 17</li>
+                                     </ul>
+                                 </li>
+                             </ul>
+                     </li>
+                     <li>UIFontMaximumPointSizeAfterScaling = 0.0</li>
+                     <li>UIFontName = .SFUIText</li>
+                     <li>UIFontPointSize = 17.0</li>
+                     <li>UIFontPointSizeForScaling = 0.0</li>
+                     <li>UIFontTextStyleForScaling = None</li>
+                     <li>UIFontTraits = 0</li>
+                     <li>UISystemFont = True</li>
+                 </ul>
+             </li>
+        </ul>
+        </il>
+        <li>UIFontDescriptor [
+        <ul>
+            <li id='UIFontDescriptor1'>UIFontDescriptor1
+                 <ul>
+                     <li>UIFontDescriptorAttributes = {
+                         <ul>
+                             <li>NSCTFontUIUsageAttribute = CTFontRegularUsage</li>
+                             <li>NSFontSizeAttribute = 17</li>
+                         </ul>
+                     </li>
+                 </ul>
+             </li>
+        </ul>
+        </il>
+        <li>UILabel [
+        <ul>
+            <li id='UILabel1'>UILabel1
+                 <ul>
+                     <li>UIAutoresizeSubviews = True</li>
+                     <li>UIAutoresizingMask = 36</li>
+                     <li>UIBounds = (0.0, 0.0, 375.0, 21.0)</li>
+                     <li>UICenter = (187.5, 10.5)</li>
+                     <li>UIContentMode = 7</li>
+                     <li>UIDeepDrawRect = True</li>
+                     <li>UIDisableUpdateTextColorOnTraitCollectionChange = False</li>
+                     <li>UIFont = <a href="#UIFont1" onclick="CollapsibleLists.makeOpen('UIFont1')">@</a>UIFont1
+                             <ul>
+                                 <li>NSName = .SFUIText</li>
+                                 <li>NSSize = 17.0</li>
+                                 <li>UIFontDescriptor = <a href="#UIFontDescriptor1" onclick="CollapsibleLists.makeOpen('UIFontDescriptor1')">@</a>UIFontDescriptor1
+                                         <ul>
+                                             <li>UIFontDescriptorAttributes = {
+                                                 <ul>
+                                                     <li>NSCTFontUIUsageAttribute = CTFontRegularUsage</li>
+                                                     <li>NSFontSizeAttribute = 17</li>
+                                                 </ul>
+                                             </li>
+                                         </ul>
+                                 </li>
+                                 <li>UIFontMaximumPointSizeAfterScaling = 0.0</li>
+                                 <li>UIFontName = .SFUIText</li>
+                                 <li>UIFontPointSize = 17.0</li>
+                                 <li>UIFontPointSizeForScaling = 0.0</li>
+                                 <li>UIFontTextStyleForScaling = None</li>
+                                 <li>UIFontTraits = 0</li>
+                                 <li>UISystemFont = True</li>
+                             </ul>
+                     </li>
+                     <li>UIShadowOffset = (0.0, -1.0)</li>
+                     <li>UIText = HelloRoboVM</li>
+                     <li>UITextAlignment = 4</li>
+                     <li>UITextColor = <a href="#UIColor1" onclick="CollapsibleLists.makeOpen('UIColor1')">@</a>UIColor1
+                             <ul>
+                                 <li>NSColorSpace = 4</li>
+                                 <li>NSWhite = 0</li>
+                                 <li>UIAlpha = 1.0</li>
+                                 <li>UIColorComponentCount = 2</li>
+                                 <li>UISystemColorName = blackColor</li>
+                                 <li>UIWhite = 0.0</li>
+                             </ul>
+                     </li>
+                     <li>UIUserInteractionDisabled = True</li>
+                     <li>UIViewContentHuggingPriority = {251, 251}</li>
+                     <li>UIViewSemanticContentAttribute = 0</li>
+                 </ul>
+             </li>
+        </ul>
+        </il>
+        <li>UIView [
+        <ul>
+            <li id='UIView1'>UIView1
+                 <ul>
+                     <li>UIAutoresizeSubviews = True</li>
+                     <li>UIAutoresizingMask = 18</li>
+                     <li>UIBackgroundColor = <a href="#UIColor2" onclick="CollapsibleLists.makeOpen('UIColor2')">@</a>UIColor2
+                             <ul>
+                                 <li>NSColorSpace = 2</li>
+                                 <li>NSRGB = 1 1 1</li>
+                                 <li>UIAlpha = 1.0</li>
+                                 <li>UIBlue = 1.0</li>
+                                 <li>UIColorComponentCount = 4</li>
+                                 <li>UIGreen = 1.0</li>
+                                 <li>UIRed = 1.0</li>
+                             </ul>
+                     </li>
+                     <li>UIBounds = (0.0, 0.0, 600.0, 600.0)</li>
+                     <li>UICenter = (300.0, 300.0)</li>
+                     <li>UIDeepDrawRect = True</li>
+                     <li>UIOpaque = True</li>
+                     <li>UISubviews = [
+                         <ul>
+                             <li><a href="#UILabel1" onclick="CollapsibleLists.makeOpen('UILabel1')">@</a>UILabel1
+                                     <ul>
+                                         <li>UIAutoresizeSubviews = True</li>
+                                         <li>UIAutoresizingMask = 36</li>
+                                         <li>UIBounds = (0.0, 0.0, 375.0, 21.0)</li>
+                                         <li>UICenter = (187.5, 10.5)</li>
+                                         <li>UIContentMode = 7</li>
+                                         <li>UIDeepDrawRect = True</li>
+                                         <li>UIDisableUpdateTextColorOnTraitCollectionChange = False</li>
+                                         <li>UIFont = <a href="#UIFont1" onclick="CollapsibleLists.makeOpen('UIFont1')">@</a>UIFont1
+                                                 <ul>
+                                                     <li>NSName = .SFUIText</li>
+                                                     <li>NSSize = 17.0</li>
+                                                     <li>UIFontDescriptor = <a href="#UIFontDescriptor1" onclick="CollapsibleLists.makeOpen('UIFontDescriptor1')">@</a>UIFontDescriptor1
+                                                             <ul>
+                                                                 <li>UIFontDescriptorAttributes = {
+                                                                     <ul>
+                                                                         <li>NSCTFontUIUsageAttribute = CTFontRegularUsage</li>
+                                                                         <li>NSFontSizeAttribute = 17</li>
+                                                                     </ul>
+                                                                 </li>
+                                                             </ul>
+                                                     </li>
+                                                     <li>UIFontMaximumPointSizeAfterScaling = 0.0</li>
+                                                     <li>UIFontName = .SFUIText</li>
+                                                     <li>UIFontPointSize = 17.0</li>
+                                                     <li>UIFontPointSizeForScaling = 0.0</li>
+                                                     <li>UIFontTextStyleForScaling = None</li>
+                                                     <li>UIFontTraits = 0</li>
+                                                     <li>UISystemFont = True</li>
+                                                 </ul>
+                                         </li>
+                                         <li>UIShadowOffset = (0.0, -1.0)</li>
+                                         <li>UIText = HelloRoboVM</li>
+                                         <li>UITextAlignment = 4</li>
+                                         <li>UITextColor = <a href="#UIColor1" onclick="CollapsibleLists.makeOpen('UIColor1')">@</a>UIColor1
+                                                 <ul>
+                                                     <li>NSColorSpace = 4</li>
+                                                     <li>NSWhite = 0</li>
+                                                     <li>UIAlpha = 1.0</li>
+                                                     <li>UIColorComponentCount = 2</li>
+                                                     <li>UISystemColorName = blackColor</li>
+                                                     <li>UIWhite = 0.0</li>
+                                                 </ul>
+                                         </li>
+                                         <li>UIUserInteractionDisabled = True</li>
+                                         <li>UIViewContentHuggingPriority = {251, 251}</li>
+                                         <li>UIViewSemanticContentAttribute = 0</li>
+                                     </ul>
+                             </li>
+                         </ul>
+                     </li>
+                     <li>UIViewSemanticContentAttribute = 0</li>
+                 </ul>
+             </li>
+        </ul>
+        </il>
+    </ul>
+    </il>
+
+</ul>
+</body>
+<script>
+    CollapsibleLists.apply();
+</script>
+</html>
+    
