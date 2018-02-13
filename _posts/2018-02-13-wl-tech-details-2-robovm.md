@@ -50,12 +50,7 @@ b837b8d31 NSLayoutConstraint fixed to use Double values as apple doesn't accept 
 cbd75ca7d Work on warnings as there was many of these in XCode which was very distractive
 5a2083bef Massive changes: 1) added support for UILayoutGuide to support safeArea of iOS11 2) added command line parsing 3) added support for minimum deployment target to be able to produce different output 4) if there is some functionality is not supported due min_dep_version nibs are now exported to folder with two files runtime.nib and unlimited objects-11.0+.nib 5) added support for customModule altogether to customClass. It is required to mange proper swift class name
 1c64b56b2 Storyboard segue: added limited support for all types of segue, fixed double entries in nib, multiple time regeneration of on VC and other bugs
-e22627686 Merge remote-tracking branch 'origin/xib2nib' into xib2nib
 e2fed3549 UIColor: added NSColorSpace and friends required by iOS to accept color
-992c8dda4 required version of cmake set to 2.8
-3f02af7ef moved to xib2nib folder to make simpler svn export from github of only one folder (for build server)
-ce4362098 adds install target to CMake
-99dcac2ea removed folder added by mistake to external, added boost debug folder that was skipped out due .gitignore
 00c111d32 added: support for key-value pairs and user defined attributes
 50b7e6eaa fixed: UIColor copy creation (instead of copy self was modified)
 86839d768 fixed: wrong limit check when writing integers fixed: not saving real values XIBObjectNumber moved to separate location and extended with extra types
