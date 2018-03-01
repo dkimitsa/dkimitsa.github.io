@@ -7,7 +7,7 @@ Last year AS/Idea become real pain in case Java project is mixed with Android on
 There is already several issues about this in the field:  
 * [IDEA-122904 Android-Gradle facet added to non-Android modules upon import](https://youtrack.jetbrains.com/issue/IDEA-122904)
 * [RoboVM: Kotlin classes in library module not being compiled](https://github.com/MobiVM/robovm/issues/264)
-* [RoboVM: Unable to start RoboVM iOS in IntelliJ due to NullPointerException](https://github.com/MobiVM/robovm/issues/242)
+* [RoboVM: Unable to start RoboVM iOS in IntelliJ due to NullPointerException](https://github.com/MobiVM/robovm/issues/242)  
 And so on. The bug is in downstream dependency -- [github/Android plugin](https://github.com/JetBrains/android) for Idea.
 
 It is almost year as JetBrains fixes it. So there is a hack which allows to run it:   
