@@ -3,6 +3,8 @@ layout: post
 title: "Intellij Idea/Android Studio: fixing annoying 'android-gradle' facet"
 tags: ["dirty hack", idea, gradle ]
 ---
+**This post is outdated**. Please follow to [post]({{ site.baseurl }}{% post_url 2018-03-06-idea-fixing-android-gradle-facet2 %}).
+
 Last year AS/Idea become real pain in case Java project is mixed with Android one. This results of "android-gradle" facet and project type to be created. And these project type doesn't play nice with RoboVM/Java projects. Nothing is working.  
 There is already several issues about this in the field:  
 * [IDEA-122904 Android-Gradle facet added to non-Android modules upon import](https://youtrack.jetbrains.com/issue/IDEA-122904)
@@ -14,6 +16,8 @@ It is almost year as JetBrains fixes it. So there is a hack which allows to run 
 <!-- more -->
 **DISCLAIMER**: Do not know if this way is correct and it would have side effects I don't know about but at least it allows RoboVM to run.   
 (the fix is for `173.4548` version of Idea)
+
+**This patch is outdated**. Please follow to [post]({{ site.baseurl }}{% post_url 2018-03-06-idea-fixing-android-gradle-facet2 %}).
 
 ```patch
 Index: android/src/com/android/tools/idea/gradle/project/sync/idea/AndroidGradleProjectResolver.java
