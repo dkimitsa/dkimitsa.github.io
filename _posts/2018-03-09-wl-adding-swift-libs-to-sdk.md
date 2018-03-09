@@ -2,6 +2,7 @@
 layout: post
 title: "W/L: Adding swift libs to iOS sdk"
 tags: ["linux windows", swift]
+date: 2018-03-09 12:04:00
 ---
 RoboVM needs swift libraries as these has to be embedded into application in case any dependency is using swift. E.g. in case you favorite framework is built using swift. Precompiled libraries are available from https://swift.org. Seems to be easy but not so fast. Details bellow.  
 <!-- more -->
