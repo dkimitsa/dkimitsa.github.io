@@ -7,7 +7,7 @@ date: 2018-03-09 13:04:00
 ---
 
 New [`Lottie.framework`](https://github.com/airbnb/lottie-ios) pod. It is nice and shiny library for  natively render After Effects vector animations, like this:   
-![]({{ "/assets/2018/03/09/PinJump.gif" | absolute_url}})  
+![]({{ "/assets/2018/03/09/pin-jump.gif" | absolute_url}})  
 
 RoboPod is available from my own `maven` repo for intermediate results `altpods`:   
 `Altpods` are available as repository in [github](https://github.com/dkimitsa/robovm-robopods), also it is deployed it to 'oss.sonatype.org' which makes it available as maven artifact.
