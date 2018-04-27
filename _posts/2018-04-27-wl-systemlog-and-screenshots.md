@@ -4,7 +4,7 @@ title: "W/L: Device system log and screenshoot capture for Idea (same as in Xcod
 tags: ["linux windows", idea]
 date: 2018-04-27 10:00:00
 ---
-Continue extending functionality for Linux/Windows port. Today device system log and screenshot capture were added. This functionality is available in Xcode on Mac but on Windows/Linux it would require external tool. It was required to adjust [libmobiledevice](http://www.libimobiledevice.org) bindings, some Robo classes and Idea plugin to make it available for user.   
+Continue extending functionality for Linux/Windows port. Today device system log and screenshot capture were added. This functionality is available in Xcode on Mac but on Windows/Linux it would require external tool. It was required to adjust [libmobiledevice](http://www.libimobiledevice.org) bindings, some RoboVM classes and Idea plugin to make it available for user.   
 **Whats new in idea**
 *Syslog* functionality almost copies Android Logcat as code from AOSP was used as reference.   
 ![]({{ "/assets/2018/04/27/robo-device-log.png" | absolute_url}})  
