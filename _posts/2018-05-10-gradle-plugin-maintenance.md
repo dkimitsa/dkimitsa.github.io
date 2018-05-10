@@ -3,7 +3,7 @@ layout: post
 title: 'RoboVM gradle plugin maintenance'
 tags: [fix, gradle]
 ---
-RoboVM gradle plugin maintenance [PR289](https://github.com/MobiVM/robovm/pull/289), in it:  
+RoboVM gradle plugin maintenance [PR292](https://github.com/MobiVM/robovm/pull/292), in it:  
 
 1. added dependency to `build` task to force java compilation for every [RoboVM tasks](https://github.com/robovm/robovm-gradle-plugin). Otherwise commands like `launchIOSDevice` will fail as java classes are not generated.
 2. added description to tasks:  
