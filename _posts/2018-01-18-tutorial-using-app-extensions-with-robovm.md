@@ -81,7 +81,8 @@ At this moment build should work (Product/Build)
 
 ## Adding signature
 Configure target's settings `General-signing` with any certificate and provisioning profile that matches extension bundle id (wildcard provisioning profile rules here) or just [create and setup dummy certificate/profile]({{ site.baseurl }}{% post_url 2018-01-04-ios-homemade-provision-profile %}) for signing.  
-In general signature doesn't matter here as when included to RoboVM project app extension will be resigned. It is only required to build binary with `xcodebuild`
+In general signature doesn't matter here as when included to RoboVM project app extension will be resigned. It is only required to build binary with `xcodebuild`.  
+**UPDATE** as at moment of building with Xcode provisioning profile doesn't matter but AppExtension DOES require own one when emebeded into application. Check this [post]({{ site.baseurl }}{% post_url 2018-05-16-fix-app-ext-autoprofile-bro-gen %})
 
 ## Building universal binary
 To create `fat` binary simulator and arm slices are being build separately and then combined using `lipo`. It is being done by invoking following commands in ternimal. Just make sure to do it in folder whene `.xcodeproj` is located:   
@@ -100,7 +101,7 @@ cp "build/release-iphoneos/OneSignalNotificationServiceExtension.appex/Info.plis
 codesign -f -s - "OneSignalNotificationServiceExtension.appex"
 ```
 
-Application extention is ready to be used with RoboVM
+Application extension is ready to be used with RoboVM
 
 ## Adding to RoboVM project
 [PR255](https://github.com/MobiVM/robovm/pull/255) have added following configuration key to `robovm.xml`:
@@ -116,6 +117,27 @@ Example:
     <extension>OneSignalNotificationServiceExtension</extension>
 </appExtensions>
 ```
+
+## UPDATE: Provision profile for application extension
+Check this post for [details]({{ site.baseurl }}{% post_url 2018-05-16-fix-app-ext-autoprofile-bro-gen %})
+While it is not required to run on device (as per today) but it is required for `Apple Store` submit. Requirement for profile is following:
+1. It shall contain same `signing identity` as profile of main application;
+2. It's application id shall match id of application extension. RoboVM makes bundle id for it as `MainAppId + "." + ExtensionName`. For `OneSignalNotificationServiceExtension` it results in `com.sample.application.OneSignalNotificationServiceExtension`, here `com.sample.application` is bundle id of applications, so bundle id of provision profile shall be:
+  * either exact match to bundle Id RoboVM generates for app extension (e.g. `com.sample.application.OneSignalNotificationServiceExtension`)
+  * wildcard id (e.g. * ) which is preferable way as it allows to have one profile for many extensions.
+
+ RoboVM will automatically search for profile that matches the signature and extension bundle id. Also there is an option to explicitly specify it in `robovm.xml` with `profile` parameter to `extension` entry:
+ ```xml
+ <appExtensions>
+     <extension profile="3AED05A9-5F1F-4120-9276-11980B9C88EE">OneSignalNotificationServiceExtension</extension>
+ </appExtensions>
+ ```
+
+Value of profile is same `iosProvisioningProfile` used with gradle and can have following values:
+- either `udid` of profile;
+- either `profile name`;
+- either `appIdPrefix`;
+- either `appIdName`.
 
 ## What RoboVM does to application extensions
 1. During `doInstall` phase it copies appex to `PlugIns` folder and updates `CFBundleIdentifier` in `Info.plist` as it has extends application ones;
