@@ -3,10 +3,9 @@ layout: post
 title: 'Tutorial: [ADMOB] using bro-gen to quick generate bindings'
 tags: ['bro-gen', tutorial, binding]
 ---
-It is not too big task to create java binding for custom framework as bro-gen semiautomatic tool available. This step-by-step tutorial explains how quickly generate binding using recently added suggestion feature. Admob is used here as an example framework.
+It is not too big task to create java binding for custom framework as bro-gen semiautomatic tool available. This step-by-step tutorial explains how quickly generate binding using recently added suggestion feature. Admob is used here as an example framework.  
 <!-- more -->
-***Dependencies***
-Checkout
+***Dependencies:***
 - Checkout [bro-gen](https://github.com/MobiVM/robovm-bro-gen)
 - Checkout [RoboVM sources](https://github.com/MobiVM/robovm)
 

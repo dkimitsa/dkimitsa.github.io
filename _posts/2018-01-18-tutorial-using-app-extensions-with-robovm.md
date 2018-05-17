@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Tutorial: using app-extensions in RoboVM iOS application'
-tags: ['app-extensions', Tutorial]
+tags: ['app-extensions', tutorial]
 ---
 Apple added support for [app-extensions](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/index.html) while ago (ios8). I've created today a [PR255](https://github.com/MobiVM/robovm/pull/255) that add ability to include pre-build app extension into RoboVM app. Answering the possible question:
 > Can I use RoboVM to develop appext  

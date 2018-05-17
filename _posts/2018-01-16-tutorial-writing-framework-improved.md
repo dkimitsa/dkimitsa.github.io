@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Tutorial: writing Framework using improved framework target'
-tags: ['target-framework', Tutorial]
+tags: ['target-framework', tutorial]
 ---
 There was a framework target in MobiVM/RoboVM for a while. But there was no any integration with Idea IDE and there was no template project available till [PR253](https://github.com/MobiVM/robovm/pull/253). Also this PR introduces framework support library binary that simplifies Framework development as all native code that is required to initialize VM is embedded into this library.  
 This Tutorial will explain what ***can be done*** with Framework target:
@@ -148,7 +148,7 @@ Declaration of these API in framework ObjectiveC header will looks as bellow:
 
 // MyFramework of framework. it is entry point to framework.
 @protocol MyFramework
--(NSObject<MyFramework> * ) newCalculator;
+-(NSObject<MyFramework> * ) createCalculator;
 @end
 ```
 
@@ -168,7 +168,7 @@ typedef NSObject<Calculator> Calculator;
 // MyFramework of framework. it is entry point to framework.
 NS_SWIFT_NAME(MyFramework)
 @protocol MyFramework
--(Calculator *) newCalculator;
+-(Calculator *) createCalculator;
 -(void) sayHello;
 -(NSString*) roboVmVersion;
 @end
@@ -178,7 +178,7 @@ typedef NSObject<MyFramework> MyFramework;
 These small changes make usage of SDK  API in ObjectiveC/Swift comfortable:
 ```objc
 MyFramework* sdk = MyFrameworkInstance();
-Calculator* calc = [sdk newCalculator];
+Calculator* calc = [sdk createCalculator];
 [calc add:123];
 [calc sub:23];
 NSLog(@"%d", [calc result]);
@@ -188,7 +188,7 @@ and in Swift
 var sdk:MyFramework!;
 sdk = MyFrameworkInstance();
 var calc:Calculator;
-calc = sdk.newCalculator();
+calc = sdk.createCalculator();
 calc.add(123);
 calc.sub(23);
 NSLog("%d",calc.result()
@@ -254,7 +254,7 @@ Modify `ViewController.m` by adding imports of Framework and test code in `viewD
     SampleSDK* sdk = SampleSDKInstance();
     NSLog(@"RoboVM version %@", [sdk roboVmVersion]);
 
-    Calculator * calc = [sdk newCalculator];
+    Calculator * calc = [sdk createCalculator];
     [calc add:123];
     [calc sub:23];
     NSLog(@"%d", [calc result]);
@@ -285,7 +285,7 @@ class ViewController: UIViewController {
         NSLog("RoboVM version %@", sdk.roboVmVersion());
 
         var calc:Calculator;
-        calc = sdk.newCalculator();
+        calc = sdk.createCalculator();
         calc.add(123);
         calc.sub(23);
         NSLog("%d",calc.result());
@@ -360,7 +360,7 @@ typedef NSObject<WebServer> WebServer;
 
 NS_SWIFT_NAME(SampleSDK)
 @protocol SampleSDK
--(Calculator * ) newCalculator;
+-(Calculator * ) createCalculator;
 -(void) sayHello;
 -(NSString * ) roboVmVersion;
 -(WebServer * ) webServer;
