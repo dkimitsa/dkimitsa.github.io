@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'bugfix #295 debugger case: crash due Kotlin data classes and broken Java classes'
-tags: [fix, debugger]
+tags: [fix, debugger, kotlin]
 ---
 Debugger maintenance.  
 **History** [Robovm compiler crashes with Kotlin modules when compiling for debug  #295](https://github.com/MobiVM/robovm/issues/295)  
