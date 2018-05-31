@@ -51,5 +51,5 @@ nav:
 tag_page: '/blog/tags/'
 
 # Puglins
-#google_analytics_token: 'UA-108359472-1' # leave blank if you don't want google analytics
+google_analytics_token: 'UA-108359472-1' # leave blank if you don't want google analytics
 disqus_short_name: 'dkimitsa-github-io' # leave blank if you don't want disqus
