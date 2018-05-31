@@ -379,3 +379,27 @@ override func viewDidLoad() {
 ```
 
 * access the page by address `http://127.0.0.1:8081` (replace 127.0.0.1 with device IP if running on device)
+
+## IMPORTANT: using crash reporters in host application
+Same as in RoboVM application reporters has to be initialized inside `Signals.installSignals` callback, check these posts for details:
+* [Tutorial: Crash Reporters and java exceptions]({{ site.baseurl }}{% post_url 2018-02-16-crash-reporters-and-java-exceptions %})
+* [Framework target: EXC_BAD_ACCESS on NPE in try-catch block]({{ site.baseurl }}{% post_url 2018-05-31-frm-target-crash-reporters %})
+
+In two words it shall use installSignals api provided by RoboVM framework project template like this:  
+```objc
+
+- (BOOL)application:(UIApplication * )application didFinishLaunchingWithOptions:(NSDictionary * )launchOptions {
+    // Override point for customization after application launch.
+
+    // testing RoboVM framework
+    SampleSDK* sdk = SampleSDKInstance();
+    [sdk installSignalHandlers:^{
+        [[Fabric sharedSDK] setDebug:true];
+        [[Crashlytics sharedInstance] setDebugMode:true];
+        [Fabric with:@[[Crashlytics class]]];
+    }];
+
+    return YES;
+}
+
+```
