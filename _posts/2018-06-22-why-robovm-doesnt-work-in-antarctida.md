@@ -20,7 +20,7 @@ public DecimalFormatSymbols(Locale locale) {
 }
 ```
 
-`Currency.getInstance()` can return null [as per spec](https://docs.oracle.com/javase/7/docs/api/java/util/Currency.html#getInstance(java.util.Locale)) for countries without currencies, such as Antarctica. Currently `icu.dat` that is embedded in RoboVM has to counties with `XXX` currency: AQ, CP.  
+`Currency.getInstance()` can return null [as per spec](https://docs.oracle.com/javase/7/docs/api/java/util/Currency.html#getInstance(java.util.Locale)) for countries without currencies, such as Antarctica. Currently `icu.dat` that is embedded in RoboVM has two counties with `XXX` currency: AQ, CP.  
 The fix is simple, to use `no currency` currency object with code `XXX` in this case:
 ```patch
 --- compiler/rt/libcore/luni/src/main/java/java/text/DecimalFormatSymbols.java	(date 1529655383000)
