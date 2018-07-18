@@ -19,21 +19,7 @@ Apple uses different format ? No, it just writes broken ASN.1 stream. Details be
 To create broken CSR just keep `Common Name` empty while creating:  
 ![]({{ "/assets/2018/07/18/keychain_csr.png" | absolute_url}})
 
-[PR311](https://github.com/MobiVM/robovm/pull/311). Kees van Dieren tried to release app to Apple with [RoboVM 2.3.4]({{ site.baseurl }}{% post_url 2018-06-21-robovm-2-3-4-released-whats-new %}) and it [got rejected](https://gitter.im/MobiVM/robovm?at=5b2bfd8c72b31d3691e508a7). It was crashing due NPE at following:
-```java
-public DecimalFormatSymbols(Locale locale) {
-...
-    try {
-        currency = Currency.getInstance(locale);
-        currencySymbol = currency.getSymbol(locale); // <== here
-        intlCurrencySymbol = currency.getCurrencyCode();
-    } catch (IllegalArgumentException e) {
-...
-    }
-}
-```
-
-And `openssl`, `bouncy castle` and several online services I was trying will complain that it is broken.
+All `openssl`, `bouncy castle` and several online services I was trying will complain that it is broken.
 
 ## Autopsy
 I used custom built `bouncy castle` to find the reason of failure and it pointed to broken `Common Name` ASN.1 object. I've converted simplified version of CSR to binary form and it looks as bellow:  
