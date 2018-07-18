@@ -152,4 +152,4 @@ return len;
 ```
 
 ## Fix to be provided by Apple
-Meanwhile I've created [ticket]() at Apple's bug tracker.
+Meanwhile I've created ticket at Apple's bug tracker and probably it will be fixed in one of the versions.
