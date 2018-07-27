@@ -3,6 +3,7 @@ layout: post
 title: 'Making BouncyCastleProvider work in IntelliJ Idea Plugin'
 tags: ['dirty hack', 'idea-plugin']
 ---
+**UPDATE**: another workarounds explained in [new post]({{ site.baseurl }}{% post_url 2018-07-27-intellij-idea-bouncy-castle-2 %})   
 A try to use BC within idea plugging ends with following:
 ```
 Caused by: java.lang.SecurityException: JCE cannot authenticate the provider BC
