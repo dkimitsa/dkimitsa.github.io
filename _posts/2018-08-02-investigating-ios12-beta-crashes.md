@@ -4,6 +4,7 @@ title: 'ios12 beta: investigating hang up and crash'
 tags: [bug, gc, ios12]
 ---
 **UPDATE**: there is a [follow up]({{ site.baseurl }}{% post_url 2018-08-08-investigating-ios12-beta-crash-vol2 %}) on this topic.  
+**UPDATE2**: there is a [follow up]({{ site.baseurl }}{% post_url 2018-08-19-investigating-ios12-beta-crash-vol3 %}) on this topic.  
 
 libgdx developers got concerned about crashes in ios12 beta and there is an [issue about it](https://github.com/MobiVM/robovm/issues/317). I was not able to reproduce it using steps provided by [Eric Nondahl](https://github.com/ericnondahl/libgdx-ios12-sample) as was trying to reproduce it on empty iOS system, and following actions helped much:
 * switching to other apps will help;

@@ -3,6 +3,8 @@ layout: post
 title: 'ios12 beta: why RoboVM hangs/crashes synthetic case in iOS12'
 tags: [bug, gc, ios12]
 ---
+**UPDATE**: there is a [follow up]({{ site.baseurl }}{% post_url 2018-08-19-investigating-ios12-beta-crash-vol3 %}) on this topic.  
+
 Few days ago I narrowed [issue](https://github.com/MobiVM/robovm/issues/317) to simple case (check [this post]({{ site.baseurl }}{% post_url 2018-08-02-investigating-ios12-beta-crashes %})) but it didn't answer why this was happening. Today I had time to digg this rock and find pice of code that cause issue. What has been done:  
 <!-- more -->
 # boehm-gc code was updated
