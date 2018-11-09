@@ -8,7 +8,7 @@ logo: '/public/logo.png'
 # support me config
 support_me_logo: '/public/become_a_patron_button.png'
 support_me_title: Support my work at Patreon
-support_me_link: 'https://www.patreon.com/bePatron?c=1359039'
+support_me_link: 'https://www.patreon.com/dkimitsa'
 
 # Site configurations
 gems:
