@@ -52,7 +52,7 @@ and
 </exportedSymbols>
 ```
 
-## 2. RoboVM is not able to compile global value that returns a obj-c block***  
+## 2. RoboVM is not able to compile global value that returns a obj-c block  
 Simple case, following binding will crash compilation:  
 ```java
 @Library(Library.INTERNAL)
