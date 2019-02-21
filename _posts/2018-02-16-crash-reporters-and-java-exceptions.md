@@ -3,6 +3,8 @@ layout: post
 title: 'Tutorial: Crash Reporters and java exceptions'
 tags: [tutorial]
 ---
+*UPDATE:* Crashlytics reports also processed NPE, this happens as it uses mach exception handlers. Check following [post for workaround](({{ site.baseurl }}{% post_url 2019-02-21-mach-exception-handler-and-crashlytics %})).
+
 Third party native SDK might report crash from following sources:
 - by sending crash report stored on device;
 - signals;
