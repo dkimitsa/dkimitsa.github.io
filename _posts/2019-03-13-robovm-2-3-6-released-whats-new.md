@@ -8,7 +8,7 @@ tags: [whatsnew]
 - [fix] Xcode project generator: added argument type to IBAction [#323](https://github.com/MobiVM/robovm/pull/323)
 - [added] forceLinkMethods configuration option to preserve method from aggressive tree shaker, [details](https://dkimitsa.github.io/2018/08/27/aggressive-treeshaker-workarounds/)
 - [fixed] `compile` dependency declaration bug with gradle 4;
-- [added] putByte/getByte support for Unsage
+- [added] putByte/getByte support for Unsafe
 - [updated] cocoa touch bindings up to ios 12.1, [new frameworks etc]({{ site.baseurl }}{% post_url 2018-11-09-ios-12-1-binding %})
 - [added] experimental option to enable incremental compilation, thanks @dthomes. [#334](https://github.com/MobiVM/robovm/pull/334)
 - [fixed] support for vectors which unchainder ARKit, [details]({{ site.baseurl }}{% post_url 2018-12-11-vector-data-types %})   
