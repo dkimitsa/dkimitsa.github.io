@@ -145,8 +145,8 @@ which is ok for non-packed structs (as they are always aligned) but it case of p
 
 
 # The fix
-It is quite not effective to find out if structure has all fields aligned (for x86_64) or if it is `integer like structure`(for armv7). Support for this case was added to bro-compiler and runtime:
-- bro compiler find outs and for each structs setups flags if it `unaligned` and if it `non integer like`;
+It is quite not effective to find out in runtime if structure has all fields aligned (for x86_64) or if it is `integer like structure`(for armv7). Support for this case was added to bro-compiler and runtime:
+- bro compiler find outs and for each structs setups flags: 1) if it `unaligned` and 2) if it `non integer like`;
 - bro gen adds synthetic method `$attr$stretMetadata` for structure classes which returns bitmask of these flags;
 - `ObjCRuntime.isStret()` will use these flags to solve described above corner cases.
 
