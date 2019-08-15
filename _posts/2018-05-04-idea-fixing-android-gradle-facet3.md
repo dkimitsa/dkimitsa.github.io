@@ -3,6 +3,7 @@ layout: post
 title: "Intellij Idea/Android Studio: never ending battle with annoying 'android-gradle'"
 tags: ["dirty hack", idea, gradle ]
 ---
+[UPDATE: possible solution delivered]({{ site.baseurl }}{% post_url 2019-08-15-android-studio-workaround %})   
 [Previous post on this topic]({{ site.baseurl }}{% post_url 2018-03-06-idea-fixing-android-gradle-facet2 %}) described how to hack `android.jar`.   
 That approach has own flaws such as it is not working properly with recent Android Studio. Now there is another way to fight the issue -- remove `android-gradle` and `java-gradle` in automatic way.  
 <!-- more -->
