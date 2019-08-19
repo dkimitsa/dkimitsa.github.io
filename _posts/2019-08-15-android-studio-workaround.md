@@ -21,19 +21,6 @@ Workaround: to generate natives as post compile and before Run step.
 
 New Run configuration will automaticaly receive it, existing one has to be added with this step manualy.  
 
-## Not complete/ideal fix
-However it is expected to be working most of the time there are few moments to note:  
-### Newly created project will fail to build with message:  
-```
-[ERROR] Couldn't compile app
-org.robovm.compiler.CompilerException: Main class com.mycompany.myapp.Main not found
-```
-
-This happens as AndroidStudio doesn't provide class path. To fix it -- manualy refresh gradle project or close/open it.
-
-### Previous workaround logic missing   
-There was logic in compilation step that additionaly included class directories that were not provided by Idea/AndroidStudio. This logic is not available in case of Run step workaround. But it SHALL not be required. If you have such kind of project to demonstrate the issue please contact me. 
-
 ## Only Gradle in case of AndroidStudio
 Android studio doesn't ship Maven plugin anymore and Maven managed projects are not possible anymore. Also projects that are managed purely by AndroidStudio are bad idea as Module configuration is Android oriented and doesn't allow to manipulate/configure modules. As result when running plugin in AndroidStudio there will be no Gradle/Maven/None options anymore and Gradle based project will be created.
 
