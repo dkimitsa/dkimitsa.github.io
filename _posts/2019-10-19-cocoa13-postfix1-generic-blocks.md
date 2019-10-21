@@ -15,6 +15,7 @@ This post start series of fixes discovered during compilation of CocoaTouch libr
 # PostFix #1: Generic class arguments and @Block parameters
 Other postfixes:  
 * [PostFix #2: Adding support for non-static @Bridge method in enums classes]({{ site.baseurl }}{% post_url 2019-10-20-cocoa13-postfix2-non-static-bridge-methods-in-enum %})
+* [PostFix #3: Support for @Block member in structs]({{ site.baseurl }}{% post_url 2019-10-21-cocoa13-postfix3-blocks-in-structs %})
 
 <!-- more -->
 ##  What is wrong 
