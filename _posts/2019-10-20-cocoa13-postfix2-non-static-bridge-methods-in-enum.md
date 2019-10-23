@@ -9,6 +9,7 @@ This post continues series of fixes discovered during compilation of CocoaTouch 
 Other postfixes:  
 * [PostFix #1: Generic class arguments and @Block parameters]({{ site.baseurl }}{% post_url 2019-10-19-cocoa13-postfix1-generic-blocks %})
 * [PostFix #3: Support for @Block member in structs]({{ site.baseurl }}{% post_url 2019-10-21-cocoa13-postfix3-blocks-in-structs %})
+* [PostFix #4: Compilation failed on @Bridge annotate covariant return synthetic method]({{ site.baseurl }}{% post_url 2019-10-22-cocoa13-postfix4-covariant-return-bridge %})
 
 Issue was discovered during compiling of `UIImageSymbolWeight` class: 
 ```
