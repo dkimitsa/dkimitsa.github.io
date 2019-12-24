@@ -4,7 +4,7 @@ title: "iOS13 PostFix #7: bindings for ios13.2"
 tags: ["binding", "bro-gen", "postfix"]
 ---
 This post continues the series of fixes discovered during compilation of CocoaTouch library and improvements to compiler.
-# PostFix #7: iOS 13.2 bindings 
+# PostFix #7: iOS 13.2 bindings
 
 While things being fixes iOS 13.2 is already in wild. This postfix delivers:
 - changes to support new api;
@@ -21,3 +21,4 @@ Code is delivered as [PR441](https://github.com/MobiVM/robovm/pull/441)
 * [PostFix #4: Compilation failed on @Bridge annotate covariant return synthetic method]({{ site.baseurl }}{% post_url 2019-10-22-cocoa13-postfix4-covariant-return-bridge %})
 * [PostFix #5: Support for Struct.offsetOf in structs]({{ site.baseurl }}{% post_url 2019-11-17-cocoa13-postfix5-offsetof-in-structs %})
 * [PostFix #6: Fixes to Network framework bindings]({{ site.baseurl }}{% post_url 2019-12-18-cocoa13-postfix6-network-framework-bindings %})
+* [PostFix #8: workaround for missing objc classes(ObjCClassNotFoundException)]({{ site.baseurl }}{% post_url 2019-12-24-cocoa13-postfix8-fix-for-missing-classes %})

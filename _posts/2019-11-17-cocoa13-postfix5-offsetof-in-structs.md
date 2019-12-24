@@ -3,18 +3,19 @@ layout: post
 title: "iOS13 PostFix #5: implementation of missing Struct.offsetOf"
 tags: ["fix", "compiler", "postfix"]
 ---
-This post continues the series of fixes discovered during compilation of CocoaTouch library and improvements to compiler.  
+This post continues the series of fixes discovered during compilation of CocoaTouch library and improvements to compiler.
 # PostFix #5: `Struct.offsetOf` always returns zero
 
-Other postfixes:  
+Other postfixes:
 * [PostFix #1: Generic class arguments and @Block parameters]({{ site.baseurl }}{% post_url 2019-10-19-cocoa13-postfix1-generic-blocks %})
 * [PostFix #2: Adding support for non-static @Bridge method in enums classes]({{ site.baseurl }}{% post_url 2019-10-20-cocoa13-postfix2-non-static-bridge-methods-in-enum %})
 * [PostFix #3: Support for @Block member in structs]({{ site.baseurl }}{% post_url 2019-10-21-cocoa13-postfix3-blocks-in-structs %})
 * [PostFix #4: Compilation failed on @Bridge annotate covariant return synthetic method]({{ site.baseurl }}{% post_url 2019-10-22-cocoa13-postfix4-covariant-return-bridge %})
 * [PostFix #6: Fixes to Network framework bindings]({{ site.baseurl }}{% post_url 2019-12-18-cocoa13-postfix6-network-framework-bindings %})
 * [PostFix #7: bindings for ios13.2]({{ site.baseurl }}{% post_url 2019-12-23-cocoa13-postfix7-ios-13-2-bindings %})
+* [PostFix #8: workaround for missing objc classes(ObjCClassNotFoundException)]({{ site.baseurl }}{% post_url 2019-12-24-cocoa13-postfix8-fix-for-missing-classes %})
 
-`Struct.offsetOf` is required to proper implement initialization of variable size structs with flexible array member such as:  
+`Struct.offsetOf` is required to proper implement initialization of variable size structs with flexible array member such as:
 ```c
 struct vectord {
     size_t len;
@@ -23,11 +24,11 @@ struct vectord {
 ```
 
 ## Root case and fix
-`Struct` has `offsetOf` definition and it returns always zero similar to `sizeOf` method. `` its implemenation is being synthesized by RoboVM compiler and invocation of `sizeOf` being fixed during trampoline phase from `Struct.sizeOf` to `DestStruct.sizeOf` (DestStruct -- an example struct implementation).  
-Root case -- compiler doesn't not synthesize `offsetOf`. 
+`Struct` has `offsetOf` definition and it returns always zero similar to `sizeOf` method. `` its implemenation is being synthesized by RoboVM compiler and invocation of `sizeOf` being fixed during trampoline phase from `Struct.sizeOf` to `DestStruct.sizeOf` (DestStruct -- an example struct implementation).
+Root case -- compiler doesn't not synthesize `offsetOf`.
 <!-- more -->
 
-## Obtaining memeber offset 
+## Obtaining memeber offset
 Structure member offsset is to retrieved from prepared LLVM structure definition using `LLVMOffsetOfElement`. Code is simple -- just need to call it for eatch member:
 ```java
 public int[] getStructMemberOffsets(StructureType structType) {
@@ -42,7 +43,7 @@ public int[] getStructMemberOffsets(StructureType structType) {
 ```
 
 ## Synthesize `offsetOf`
-`offsetOf` is simple function of kind: `switch(memberIdx) -> return offset`. All constants are pre-calculated during compilation and funciton just returns constants. Code that synthesize `offsetOf` looks like bellow:  
+`offsetOf` is simple function of kind: `switch(memberIdx) -> return offset`. All constants are pre-calculated during compilation and funciton just returns constants. Code that synthesize `offsetOf` looks like bellow:
 ```java
 private Function structOffsetOf(ModuleBuilder moduleBuilder, SootMethod method) {
     Function fn = createMethodFunction(method);
@@ -78,7 +79,7 @@ private Function structOffsetOf(ModuleBuilder moduleBuilder, SootMethod method) 
 }
 ```
 
-It produces `offsetOf` LLVM IR code similar to bellow:  
+It produces `offsetOf` LLVM IR code similar to bellow:
 ```
 define weak i32 @"[J]com.example.Testic5.offsetOf(I)I"(%Env* %p0, i32 %p1) nounwind noinline optsize {
 label0:
@@ -94,9 +95,9 @@ label3:
 ```
 
 ## Trampoline for `offsetOf`
-For every `MyStruct.offsetOf` javac generates call to `Struct.offsetOf` and last is always return zero. `offsetOf` was synthesized for `MyStruct` with changes above but this happened after javac and it resolve `offsetOf` to `Struct` as it was not hidden in `MyStruct`. Solution for this is ultimately trampoline all `offsetOf` calls to final struct. 
+For every `MyStruct.offsetOf` javac generates call to `Struct.offsetOf` and last is always return zero. `offsetOf` was synthesized for `MyStruct` with changes above but this happened after javac and it resolve `offsetOf` to `Struct` as it was not hidden in `MyStruct`. Solution for this is ultimately trampoline all `offsetOf` calls to final struct.
 Same is already being done for `sizeOf` method in `TrampolineCompiler.java`:
 
-## Source code 
+## Source code
 The fix was delivered as [PR431](https://github.com/MobiVM/robovm/pull/431)
 
