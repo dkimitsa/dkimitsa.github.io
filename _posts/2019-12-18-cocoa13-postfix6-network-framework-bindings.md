@@ -30,6 +30,7 @@ Same time bro-gen extracts types defined in framework as protocols (like `NWPath
 * [PostFix #5: Support for Struct.offsetOf in structs]({{ site.baseurl }}{% post_url 2019-11-17-cocoa13-postfix5-offsetof-in-structs %})
 * [PostFix #7: bindings for ios13.2]({{ site.baseurl }}{% post_url 2019-12-23-cocoa13-postfix7-ios-13-2-bindings %})
 * [PostFix #8: workaround for missing objc classes(ObjCClassNotFoundException)]({{ site.baseurl }}{% post_url 2019-12-24-cocoa13-postfix8-fix-for-missing-classes %})
+* [PostFix #9: experimental and formal bitcode support]({{ site.baseurl }}{% post_url 2019-12-26-cocoa13-postfix9-formal-bitcode-support %})
 
 ## Root case
 `NativeProtocolProxy` works great presenting protocols as object but in this case it fails runtime with `ObjCClassNotFoundException: OS_nw_path_monitor`. This exception means that there is no such protocol registered in objc runtime. Simple objc runtime code was used to check if protocol is present in runtime:
