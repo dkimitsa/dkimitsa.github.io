@@ -55,7 +55,7 @@ Just install the plugin and it will be removing the facets. It will output to `E
 
 ## Google Android Studio
 It is almost not usable with Java or RoboVM projects as it is highly focused around android. Simple `Project structure` looks horrible in it and is not usable (no java or robovm modules etc):
-![]({{ "/assets/2018/05/04/as-unusable-project-structure.png" | absolute_url}})  
+![]({{ "/assets/2018/05/04/as-unusable-project-structure.png"}})  
 
 Solution is to run `Android Studio` in `IntelliJ Idea` mode, simple run it without specifying platform prefix with shell script similar to this:
 ```bash

@@ -10,12 +10,12 @@ And it still doesn't work nice, here few workarounds that will allow to start pr
 <!-- more -->
 
 1. With [PR253](https://github.com/MobiVM/robovm/pull/253) there is a menu that allows to bring "create new project" dialog back.
-![]({{ "/assets/2018/01/12/robovm-idea-new-menu.png" | absolute_url}})
+![]({{ "/assets/2018/01/12/robovm-idea-new-menu.png"}})
 
 2. Also same [PR253](https://github.com/MobiVM/robovm/pull/253) fixes crashes that appeared during gradle project importing due different `ProjectDataManager` are used in `Idea 2017.3` and `Android Studio 3` (last one is used deprecated and recent class is not present in AS3)
 
 3. There is an [epic bug](https://youtrack.jetbrains.com/issue/IDEA-184950) discovered in Idea/AS which costed me half of the day. The bug itself says that "gradle version is unsupported", the workaround would be a try to use different (but supported) version (or file manipulation but I will not cover it here as not realible). Check [link](https://youtrack.jetbrains.com/issue/IDEA-184950) for details;
-![]({{ "/assets/2018/01/15/gradle-version-unsupported.png" | absolute_url}})
+![]({{ "/assets/2018/01/15/gradle-version-unsupported.png"}})
 
 4. Once gradle project is being imported and "gradle version is unsupported" message appear either try different version of gradle or hit ok and AS will add gradle wrapper to project
 
@@ -29,7 +29,7 @@ try following:
    - re-import gradle project;
    - open module settings and remove `android-gradle` and keep only `Java-gradle`;
    - if gradle project is refreshed -- remove `android-gradle` again
-   ![]({{ "/assets/2018/01/15/gradle-use-java-gradle.png" | absolute_url}})
+   ![]({{ "/assets/2018/01/15/gradle-use-java-gradle.png"}})
 
 7. instead of 6. it is possible just trigger project build from `Build-Make project` menu;
 

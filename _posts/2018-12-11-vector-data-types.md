@@ -55,7 +55,7 @@ void bridge(void* target, void* ret, void* self, void* sel) {
 ```
 
 Where `st` is a struct to receive result and it is allocated on stack. `+(simd_float2x4) testFloat2x4` code crashes with GPF on following instruction:
-![]({{ "/assets/2018/12/11/vectors_x86_64_crash.png" | absolute_url}})
+![]({{ "/assets/2018/12/11/vectors_x86_64_crash.png"}})
 
 `movaps %xmm0, 0x10(%rdi)` is SSE instruction that operates on 16 bytes aligned addresses but `rdi` contains `0x00007ffeefbfb8d8` address of allocated on stack `st` struct. It is not 16 by aligned and this causes `EXC_I386_GPFLT` exception.  
 Reason for case: generic structs are subject for ABI specific alignment and it is 8 bytes for Amd64. Bridge shall generate vectorized struct with proper alignment.

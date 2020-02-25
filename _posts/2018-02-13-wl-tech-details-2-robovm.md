@@ -170,8 +170,8 @@ Headers: 1
 It is not very useful when layouts and cases becomes complicated. I create three new tools that provide higher level output of NIB file structure. I have forked `davidquesada/ibtool` into [dkimitsa/ibtool](https://github.com/dkimitsa/ibtool/tree/advanced_ibdump) and all changes are in new [ibdump2.py](https://github.com/dkimitsa/ibtool/blob/advanced_ibdump/ibdump2.py). It provides three output modes.
 
 ## Tool 1: Viewer of low level data with mapping to HEX dump
-Command line for this mode is following `ibdump2.py --hex=dump.html View.nib`. Can be simplified to `ibdump2.py --hex= View.nib` and result will be written to `View.nib.hexdump.html`. Sample output is following screenshot and [sample file]({{ "/assets/2018/02/13/test.nib.hexdump.html" | absolute_url}}):  
-![]({{ "/assets/2018/02/13/hexdump.png" | absolute_url}})
+Command line for this mode is following `ibdump2.py --hex=dump.html View.nib`. Can be simplified to `ibdump2.py --hex= View.nib` and result will be written to `View.nib.hexdump.html`. Sample output is following screenshot and [sample file]({{ "/assets/2018/02/13/test.nib.hexdump.html"}}):  
+![]({{ "/assets/2018/02/13/hexdump.png"}})
 
 This tools dumps same output as `ibdump.py` but allows to see bytes for each object in hex dump which is useful for following:
 - allows to evaluate exact bytes behind object;
@@ -272,8 +272,8 @@ UIView:
 ```
 
 ## Tool 3: High level HTML tree presentation of NIB objects
-Command line for this mode is following `ibdump2.py --html=dump.html View.nib`. Can be simplified to `ibdump2.py --html= View.nib` and result will be written to `View.nib.dump.html`. Sample output is following screenshot and [sample file]({{ "/assets/2018/02/13/test.nib.dump.html" | absolute_url}}):  
-![]({{ "/assets/2018/02/13/dump.png" | absolute_url}})
+Command line for this mode is following `ibdump2.py --html=dump.html View.nib`. Can be simplified to `ibdump2.py --html= View.nib` and result will be written to `View.nib.dump.html`. Sample output is following screenshot and [sample file]({{ "/assets/2018/02/13/test.nib.dump.html"}}):  
+![]({{ "/assets/2018/02/13/dump.png"}})
 
 This tools is most useful one. Scenario of usage one is quite simple:
 * generate html files for both nibs: reference one and one under test;
@@ -282,7 +282,7 @@ This tools is most useful one. Scenario of usage one is quite simple:
 # Exercise: fixing UIControl flags in UISwitch (enabled, highlighted, selected)
 (all changes bellow present in [commit](https://github.com/dkimitsa/WinObjC/commit/65aa23c91ac7b76af9cfd25fd3966bb5d3dc4405))
 
-Lets create a simple [test.xib]({{ "/assets/2018/02/13/test.xib" | absolute_url}}) that includes 4 UISwitch as root object with following settings in each:
+Lets create a simple [test.xib]({{ "/assets/2018/02/13/test.xib"}}) that includes 4 UISwitch as root object with following settings in each:
 * first: default (enabled, not selected, not highlighted);
 * second: selected
 * third: highlighted
@@ -307,7 +307,7 @@ ibdump2.py --html= ibtool.nib
 ibdump2.py --html= xib2nib.nib
 ```
 Open both `ibtool.nib.dump.html` and `xib2nib.nib.dump.html` side-by-side and to find out what is missing in xib2nib result:
-![]({{ "/assets/2018/02/13/sidebyside.png" | absolute_url}})
+![]({{ "/assets/2018/02/13/sidebyside.png"}})
 
 ## Fixing UIControl
 Selected/Highlighed/Enabled are base properties of UIControl so parsing XIB values shall go to single place:

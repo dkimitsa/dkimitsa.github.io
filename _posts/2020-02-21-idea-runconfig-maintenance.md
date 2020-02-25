@@ -23,12 +23,12 @@ And auto mode is identified by it and not string constant in entry name.
 When explicit entry is used (e.g. not auto) entries id is saved instead of entry name (udid for profile/simulator, footprint for signing identity). No collision anymore.
 
 ### Auto mode for simulator
-![]({{ "/assets/2020/2/21/idea-run-auto-sims.png" | absolute_url}})
+![]({{ "/assets/2020/2/21/idea-run-auto-sims.png"}})
 Simulator field receives two modes `auto iPhone` and `auto iPad`. These modes acts similarly to gradle's one 'launchIPhoneSimulator'/`launchIPadSimulator`.
 Also in case there is no simulator available in system it will allows to recover broken run configuration.
 
 ### Quick fix for broken fields
-![]({{ "/assets/2020/2/21/idea-run-quick-fix.png" | absolute_url}})
+![]({{ "/assets/2020/2/21/idea-run-quick-fix.png"}})
 Problem fields can be quick fixed to auto value with `Fix` button.
 
 ### arm64 is default for device target

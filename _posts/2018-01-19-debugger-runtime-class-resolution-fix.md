@@ -7,7 +7,7 @@ tags: [debugger, fix]
 
 This happens when evaluating internal of `native` object in debugger (NSDictionary in my case) and bound Java class for internal objects (NSDictionary$EntrySet in my case) was not loaded by Runtime. E.g. class resolution is happening by Debugger itself.
 The bug's symptoms are following: app hangs, and variable is not resolved in debugger:
-![]({{ "/assets/2018/01/19/debugger-evaluate-exp-bug.png" | absolute_url}})
+![]({{ "/assets/2018/01/19/debugger-evaluate-exp-bug.png"}})
 
 In idea log it appears as exception:
 <!-- more -->

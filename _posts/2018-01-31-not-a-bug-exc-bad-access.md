@@ -6,7 +6,7 @@ tags: [fix, target-framework, arc, gc]
 **UPDATED** with workaround if "new" prefix is still required.
 
 Native ObjectiveC/Swift code that uses shared code [RoboVM code as Framework]({{ site.baseurl }}{% post_url 2018-01-16-tutorial-writing-framework-improved %}) could ends in following:
-![]({{ "/assets/2018/01/31/exc-bad-access.png" | absolute_url}})
+![]({{ "/assets/2018/01/31/exc-bad-access.png"}})
 
 Sometimes it happens randomly but here is how to make it upon-request:   
 <!-- more -->

@@ -17,13 +17,13 @@ Apple uses different format ? No, it just writes broken ASN.1 stream. Details be
 
 ## Way to reproduce
 To create broken CSR just keep `Common Name` empty while creating:  
-![]({{ "/assets/2018/07/18/keychain_csr.png" | absolute_url}})
+![]({{ "/assets/2018/07/18/keychain_csr.png"}})
 
 All `openssl`, `bouncy castle` and several online services I was trying will complain that it is broken.
 
 ## Autopsy
 I used custom built `bouncy castle` to find the reason of failure and it pointed to broken `Common Name` ASN.1 object. I've converted simplified version of CSR to binary form and it looks as bellow:  
-![]({{ "/assets/2018/07/18/apple_broken_csr.png" | absolute_url}})
+![]({{ "/assets/2018/07/18/apple_broken_csr.png"}})
 
 Highlighted is `Common name` object in ASN.1 representation:
 * 0x30 -- tag, tag no == SEQUENCE

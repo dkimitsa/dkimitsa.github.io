@@ -9,7 +9,7 @@ Fix is delivered as [PR401](https://github.com/MobiVM/robovm/pull/401).
 ## Root cause 
 It happens as long as project gets Android module (which attaches AndroidFacet) to all modules and Idea loses compilation control as Android plugin takes over it. RoboVM Idea plugin registers as compilation step to process compiled java class files into native objects. Buts as this not happens as Android plugin respects not more than gradle rules (e.g. ignores Idea's compilations steps) native parts is not get generated and plugin crashes with NPE. 
 Also it will not work if build and run is configured to be done with gradle and not with Idea. Its being controlled by these options:   
-![]({{ "/assets/2019/8/15/idea-gradle-options.png" | absolute_url}})
+![]({{ "/assets/2019/8/15/idea-gradle-options.png"}})
 
 ## The fix
 <!-- more -->
@@ -17,7 +17,7 @@ Proper one: assume that is best way is to integrate into gradle build process si
 
 Workaround: to generate natives as post compile and before Run step.  
 `RoboVmBeforeRunTaskProvider` was added that handles this case. If compilation step was ignored -- native code generation will be handled there. It also appears in run configuration as bellow:
-![]({{ "/assets/2019/8/15/idea-before-run-step.png" | absolute_url}})  
+![]({{ "/assets/2019/8/15/idea-before-run-step.png"}})  
 
 New Run configuration will automaticaly receive it, existing one has to be added with this step manualy.  
 

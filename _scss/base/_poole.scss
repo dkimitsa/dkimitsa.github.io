@@ -175,10 +175,13 @@ pre {
 }
 pre code {
   padding: 0;
-  font-size: 80%;
+  font-size: .8rem;
   color: inherit;
   background-color: transparent;
-  word-wrap: normal
+  word-wrap: normal;
+  @media (min-width: 38rem) {
+    font-size: 80%;
+  }
 }
 
 /* Pygments via Jekyll */

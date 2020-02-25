@@ -14,11 +14,11 @@ It is quite rare hacking as there is no problem receive certificate/provisioning
     - *Certificate type*: `Code signing`
     - be sure to check `let me override defaults`  
 
-![]({{ "/assets/2018/01/04/cert-assistant1.png" | absolute_url}})   
+![]({{ "/assets/2018/01/04/cert-assistant1.png"}})   
 * hit continue and in next screen update validity period to *3652* this will to extend it live to 10 years
 * next `personal information`: *important* to specify `Organization unit` here as it will be used as `Team identifier`
 
-![]({{ "/assets/2018/01/04/cert-assistant2.png" | absolute_url}})   
+![]({{ "/assets/2018/01/04/cert-assistant2.png"}})   
 * next `Key Pair information` also not required any changes, keep default `Key Size: 2048 bits` and `Algorithm: RSA`
 * next `Key Usage Extension` please check that `Signature` is selected
 * next `Extended Key Usage Extension` please select beside `Code Signing` additional `Any` and `Email Protection` options. As this certificate will be also used to sign provisioning profile
@@ -225,6 +225,6 @@ Once reopened Xcode will see provisioning profile but will not be able to pick c
 * keep team empty
 
 Settings should looks similar to screenshot bellow:
- ![]({{ "/assets/2018/01/04/cert-using-in-xcode.png" | absolute_url}})   
+ ![]({{ "/assets/2018/01/04/cert-using-in-xcode.png"}})   
 
 Having these settings it is possible to build and dummy sign `Frameworks`, `plugins` or `application extensions`. Also it is possible to create and sign `.ipa` file this way but it is completely useless.

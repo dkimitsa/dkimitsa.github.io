@@ -20,11 +20,11 @@ carthage update
 ## First issue: there is no project type `**** Service Extension` in XCode
 
 Service extension can be added to existing project only as target. So lets create new "Single View App" project in xcode. Fill the options dialog with values as shown on screenshot below:  
-![]({{ "/assets/2018/01/18/appex-xcode-project-settings.png" | absolute_url}})
+![]({{ "/assets/2018/01/18/appex-xcode-project-settings.png"}})
 
 Add new `Notification Service Extension` target (File-New target) to newly created project. Enter the product name as `OneSignalNotificationServiceExtension` and press Finish. Do not activate "OneSignalNotificationServiceExtension" scheme.
 At this moment project should have following structure:  
-![]({{ "/assets/2018/01/18/appex-xcode-project-structure.png" | absolute_url}})
+![]({{ "/assets/2018/01/18/appex-xcode-project-structure.png"}})
 
 There is no need in "Single View App" so it can be freely removed:
 * select OneSignal target and hit '-'
@@ -35,7 +35,7 @@ There is no need in "Single View App" so it can be freely removed:
 * use finder and drag-and-drop `OneSignal.framework` to project tree;
 * check that `Build Phases - Link Binary With Libraries` contain `OneSignal.framework`
 
-![]({{ "/assets/2018/01/18/appex-xcode-link-settings.png" | absolute_url}})
+![]({{ "/assets/2018/01/18/appex-xcode-link-settings.png"}})
 
 ## Adding OneSignal code
 Just following [manual](https://documentation.onesignal.com/docs/ios-sdk-setup) and turning `NotificationService.m` into following:  

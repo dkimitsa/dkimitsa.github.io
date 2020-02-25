@@ -7,16 +7,16 @@ There was basic a check for updates already at compiler level (and it even was [
 
 # Changes visible to user
 ## Balloon instead of console output
-![]({{ "/assets/2018/02/21/update-balloon.png" | absolute_url}})  
+![]({{ "/assets/2018/02/21/update-balloon.png"}})  
 <!-- more -->
 Code was enhanced to allow high-level code above compiler to display user friendly dialogs instead of console output. In case there is no high level overrides (gradle case) there still will be old style console print.
 
 ## Version check in RoboVM menu
-![]({{ "/assets/2018/02/21/update-menu.png" | absolute_url}})
+![]({{ "/assets/2018/02/21/update-menu.png"}})
 Now user can trigger version check at any moment. Also if balloon notification was closed this menu causes same update dialog.
 
 ## Update dialog
-![]({{ "/assets/2018/02/21/update-popup.png" | absolute_url}})
+![]({{ "/assets/2018/02/21/update-popup.png"}})
 This dialog is triggered either by "check for update" menu click or by clicking on `updates available` balloon. It contains basic version information and button that will navigate to Download page.
 
 ## Other changes

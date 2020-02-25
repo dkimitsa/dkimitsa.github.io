@@ -29,7 +29,7 @@ Windows: [iTunes](https://www.apple.com/lae/itunes/download/) has to be installe
 
 **Installation:**  
 1. Download and install [MVP RoboVM Idea plugin](https://goo.gl/WxVuM3). Once started you should see following screen:
-![]({{ "/assets/2017/12/07/robovm_setup_dialog.png" | absolute_url}})
+![]({{ "/assets/2017/12/07/robovm_setup_dialog.png"}})
 2. Install toolchain:
    - depending on operation system and arch from screenshot above pick package to download.  
    [windows-x86_64](https://goo.gl/wbz5WJ)  

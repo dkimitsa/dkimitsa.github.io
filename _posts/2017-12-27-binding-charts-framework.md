@@ -11,7 +11,7 @@ New RoboPod [`Charts.framework`](https://github.com/danielgindi/Charts), current
 
 >Charts: Beautiful charts for iOS/tvOS/OSX! The Apple side of the crossplatform MPAndroidChart.
 
-![]({{ "/assets/2017/12/27/ChartsFrameworkDemo.png" | absolute_url}})
+![]({{ "/assets/2017/12/27/ChartsFrameworkDemo.png"}})
 
 > WARNING: as today there is bug in RoboVM that doesn't allow it to run [Issue #244](https://github.com/MobiVM/robovm/issues/244) and [fix PR#245](https://github.com/MobiVM/robovm/pull/245). To early access it custom build of RoboVM with this PR is applied
 

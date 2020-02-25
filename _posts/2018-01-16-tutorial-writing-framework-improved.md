@@ -199,13 +199,13 @@ NSLog("%d",calc.result()
 Source code is available at my [robo-samples](https://github.com/dkimitsa/robovm-samples/tree/alt/framework) github repository.
 
 Start with Framework RoboVM project:  
-![]({{ "/assets/2018/01/12/robovm-idea-new-framework-project.png" | absolute_url}})
+![]({{ "/assets/2018/01/12/robovm-idea-new-framework-project.png"}})
 
 When configuring project fill down values as specified bellow:  
-![]({{ "/assets/2018/01/16/framework-new-wizard.png" | absolute_url}})
+![]({{ "/assets/2018/01/16/framework-new-wizard.png"}})
 
 Continue with gradle configuration step and once finished project will be opened in Idea. Project tree will look as bellow:
-![]({{ "/assets/2018/01/16/framework-project-tree.png" | absolute_url}})
+![]({{ "/assets/2018/01/16/framework-project-tree.png"}})
 
 Following files were generated:
 * src/main/java/ - folder contains source code for Framework
@@ -223,22 +223,22 @@ At this point Framework project from template already contains basic code that a
 
 ## Building framework
 * Back to idea, navigate to RoboVM menu and select `Create Framework`
-![]({{ "/assets/2018/01/12/robovm-idea-new-menu.png" | absolute_url}})
+![]({{ "/assets/2018/01/12/robovm-idea-new-menu.png"}})
 * In the dialog specify `Destination Dir` to point to `SampleSDKDemoObjectiveC` where sample project is located;
-![]({{ "/assets/2018/01/12/robovm-idea-create-framework-dialog.png" | absolute_url}})
+![]({{ "/assets/2018/01/12/robovm-idea-create-framework-dialog.png"}})
 * build and check RoboVM log window for details
 
 ## Configuring XCode to use framework
 * back to XCode, open Finder and drag-and-drop `SampleSDK.framework` to XCode project tree, select `Copy items if needed` and `Create folder references`;
 * in project setting disable bitcode;
-![]({{ "/assets/2018/01/16/framework-disable-bitcode.png" | absolute_url}})
+![]({{ "/assets/2018/01/16/framework-disable-bitcode.png"}})
 * open Project setting `Build Phases` screen and check if framework is present in 'Link Binary With Libraries' list;
 * hit + and add `New Copy Files Phase`:
     - rename it to `Copy Frameworks`
     - Change `Destination` to `Frameworks`
     - hit local + and select `SampleSDK.framework`
 * Final `Build Phases` should look similar to this screen:
-![]({{ "/assets/2018/01/16/framework-build-phases.png" | absolute_url}})
+![]({{ "/assets/2018/01/16/framework-build-phases.png"}})
 
 Try building and running Demo project. If it deploys to Device/Simulator -- it is configured properly
 

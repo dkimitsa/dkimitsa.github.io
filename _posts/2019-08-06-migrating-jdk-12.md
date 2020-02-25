@@ -4,7 +4,7 @@ title: 'RoboVM updated to run on JDK12 host'
 tags: [jdk12, maven]
 ---
 
-![]({{ "/assets/2019/8/7/java8-eol.png" | absolute_url}})
+![]({{ "/assets/2019/8/7/java8-eol.png"}})
 
 Changes propose as [PR400](https://github.com/MobiVM/robovm/pull/400)
 
