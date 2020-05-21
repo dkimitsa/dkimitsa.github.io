@@ -17,7 +17,7 @@ Xcode produces `watch.app` and it has to be copied into `ios.app/Watch/watch.app
 <watchKitApp>
     <app>watch.app</app>
     <!-- <extensions>
-            <extension profile="C87CF3BF-1B73-4E32-9CCB-71C3D6AE7E8D">watch Extension</extension>
+            <extension profile="C87CF3BF-1B73-4E32-9CCB-71C3D6AE7E8E">watch Extension</extension>
             custom signing if of watch.app extensions
             might be done here if required
         </extensions>-->
