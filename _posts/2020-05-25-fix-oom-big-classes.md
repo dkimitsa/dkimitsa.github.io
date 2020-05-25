@@ -3,7 +3,7 @@ layout: post
 title: 'RoboVM compiler: out of memory -- huge class case'
 tags: [fix]
 ---
-RoboVM compiler is quite memory hungry by its nature: creates and manipulates a bunch of strings, have to keep parsed classes structures while compiling etc. Also there is a bug opened [#150](https://github.com/MobiVM/robovm/issues/150)). Usually its enough to give JVM bigger heap (`-Xmx4g`) to make everyone happy.  
+RoboVM compiler is quite memory hungry by its nature: creates and manipulates a bunch of strings, have to keep parsed classes structures while compiling etc. Also there is a bug opened [#150](https://github.com/MobiVM/robovm/issues/150). Usually its enough to give JVM bigger heap (`-Xmx4g`) to make everyone happy.  
 There [was a report](https://gitter.im/MobiVM/robovm?at=5e871b26a95bc942564df0a5) on gitter channel about `OOM` that happens on a single file that can't be fixed by increasing heap size. File just contained about 8K static final string fields. 
 
 To reproduce the case dummy file with 8000 strings was generated:  
@@ -14,6 +14,7 @@ public class DBkeys
     static public final String T0002 = "";
     // lot of more these 
     static public final String T8000 = "";
+}
 ```
 
 Compilation using default heap settings just produce `Out of memory exception` but once JVM granted plenty of ram (`-Xmx32g`) it ends up with exception:
