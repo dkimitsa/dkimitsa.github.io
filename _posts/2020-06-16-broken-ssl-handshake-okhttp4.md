@@ -153,7 +153,7 @@ And two compatible with both `okhttp` and Cloudflare:
 ## Code 
 Delivered as [PR496](https://github.com/MobiVM/robovm/pull/496).
 
-## NP
+## NB.
 Update to recent Java runtime is still required. One day old code will just stop working. 
   
  
