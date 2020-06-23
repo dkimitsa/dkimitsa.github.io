@@ -3,9 +3,9 @@ layout: post
 title: 'AltPods: pods updated - 1.8.0-SNAPSHOT'
 tags: ['bro-gen', binding, robopods, altpods]
 ---
-AltPods were update to v1.8.0-SNAPSHOTS to sync with recent releases. Part of list didn't receive any API update hovewer bindings were re-generated against recent version of frameworks. Update list look as bellow:
+AltPods were updated to v1.8.0-SNAPSHOTS to sync with recent releases. Part of list didn't receive any API update hovewer bindings were re-generated against recent version of frameworks. Update list look as bellow:
 
-### New framework
+### New frameworks
 - [Firebase/Authentication](https://github.com/dkimitsa/robovm-robopods/tree/alt/firebase/ios-auth) `v6.27.0`
 - [Firebase/RemoteConfig](https://github.com/dkimitsa/robovm-robopods/tree/alt/firebase/ios-remoteconfig) `v6.27.0`
 
