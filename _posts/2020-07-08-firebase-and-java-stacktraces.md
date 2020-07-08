@@ -42,3 +42,6 @@ Thread.setDefaultUncaughtExceptionHandler((thread, ex) -> {
     throw new ThreadDeath();
 });
 ```
+
+## Bonus
+To get debug output from Crashlytics in simulator its not enought to provide `-FIRDebugEnabled`. Adding `-FIRLoggerForceSTDERR` helps.
