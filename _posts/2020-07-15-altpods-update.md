@@ -18,6 +18,9 @@ AltPods were updated to v1.9.0-SNAPSHOTS to sync with recent releases. Part of l
 - [Firebase](https://github.com/dkimitsa/robovm-robopods/tree/alt/firebase) `v6.28.0`
 - [OneSignal](https://github.com/dkimitsa/robovm-robopods/tree/alt/onesignal/ios) `v2.14.3`
 
+### Other changes
+* `FIRCrashlytics.registerDefaultJavaUncaughtExceptionHandler` that acts similar to same method in `NSException` but convert stack traces to FIRExceptionModel (check [post]({{ site.baseurl }}{% post_url 2020-07-08-firebase-and-java-stacktraces%}) for details)  
+
 
 These pods were pushed to `https://oss.sonatype.org/content/repositories/snapshots` maven repo under `1.9.0-SNAPSHOTS` version.
 [Source code @github](https://github.com/dkimitsa/robovm-robopods)
