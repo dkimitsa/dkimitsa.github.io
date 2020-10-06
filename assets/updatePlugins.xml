@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+    <plugin id="com.mobidevelop.robovm.intellij" url="https://github.com/dkimitsa/robovm-libcore10-smoketest/releases/download/10.0.1-SNAPSHOT/idea-10.0.1-SNAPSHOT.zip" version="10.0.1-SNAPSHOT">
+        <idea-version since-build="192.3" />
+        <name>RoboVM - Libcore 10</name>
+        <description>
+            <![CDATA[
+            <p>
+               WARNING: for testing only!
+               Unofficial RoboVM build for testing Libcore 10 Runtime.
+               Please report issues to following <a href="https://github.com/dkimitsa/robovm-libcore10-smoketest/issues">tracker</a>.
+            </p>
+        ]]>
+        </description>
+        <change-notes>
+            <![CDATA[
+            <b>10.0.1</b>
+            <li> First build with Libcore 10 POC </li>
+        ]]>
+        </change-notes>
+    </plugin>
+</plugins>
