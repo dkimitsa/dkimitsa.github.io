@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+    <plugin id="com.mobidevelop.robovm.intellij" url="http://robovm.mobidevelop.com/downloads/releases/idea/idea-2.3.10.zip" version="2.3.10">
+      <idea-version since-build="193.1"/>
+      <name>MobiVM</name>
+      <description>
+        <![CDATA[
+            <p>
+              MobiVM is a fork of the last open-source release of RoboVM — an ahead-of-time compiler for Java bytecode, targeting Linux, Mac OS X and iOS.
+            </p>
+        ]]>
+      </description>
+      <change-notes>
+        <![CDATA[
+            <b>2.3.10</b>
+            <li> iOS 13 API support </li>
+            <li> iOS 14 device support </li>
+            <li> fixes and improvements </li>
+        ]]>
+      </change-notes>
+    </plugin>
+</plugins>
