@@ -12,8 +12,8 @@ Mostly maintenance release:
 
 ## 2.3.12-SNAPSHOT:
 Includes functionality currently in testing:  
-* iOS14 bindings (PR515)(https://github.com/MobiVM/robovm/pull/515)
-* support for entitlements for Simulator target
+* iOS14 bindings [PR515](https://github.com/MobiVM/robovm/pull/515)
+* support for entitlements for Simulator target [PR535](https://github.com/MobiVM/robovm/pull/535) 
 
 ### Installing SNAPSHOT  from custom plugin repository
 In settings dialog: 
