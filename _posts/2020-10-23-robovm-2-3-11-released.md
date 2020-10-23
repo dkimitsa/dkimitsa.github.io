@@ -14,6 +14,13 @@ Mostly maintenance release:
 Includes functionality currently in testing:  
 * iOS14 bindings (PR515)(https://github.com/MobiVM/robovm/pull/515)
 * support for entitlements for Simulator target
+
+### Installing SNAPSHOT  from custom plugin repository
+In settings dialog: 
+* select `Manage Plugin Repositories`;
+* add `https://dkimitsa.github.io/assets/mobivm-snapshot.xml` for installing the latest snapshot;
+
+Then switch to `Market place` search for `MobiVM`;  
  
 Happy coding!  
 Please report any issue to [tracker](https://github.com/MobiVM/robovm/issues/new).
