@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugins>
-  <plugin id="com.mobidevelop.robovm.intellij" url="http://robovm.mobidevelop.com/downloads/snapshots/idea/idea-2.3.11-SNAPSHOT.zip" version="2.3.11-SNAPSHOT">
+  <plugin id="com.mobidevelop.robovm.intellij" url="http://robovm.mobidevelop.com/downloads/snapshots/idea/idea-2.3.12-SNAPSHOT.zip" version="2.3.12-SNAPSHOT">
     <idea-version since-build="193.1"/>
     <name>MobiVM</name>
     <description>
@@ -12,8 +12,9 @@
     </description>
     <change-notes>
       <![CDATA[
-            <b>2.3.11-SNAPSTHOT</b>
-            <li> version in development </li>
+            <b>2.3.12-SNAPSTHOT</b> version in development
+            <li> iOS14 bindings </li>
+            <li> entitlements for simulator target </li>
         ]]>
     </change-notes>
   </plugin>
