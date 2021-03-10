@@ -11,7 +11,7 @@ AltPods were updated to v1.15.0-SNAPSHOT to sync with recent releases.
 - [BranchMetrics](https://github.com/dkimitsa/robovm-robopods/tree/alt/applovinsdk) `v1.38.0`
 - [Charts](https://github.com/dkimitsa/robovm-robopods/blob/alt/charts) `v4.0.1`
 - [Facebook](https://github.com/dkimitsa/robovm-robopods/tree/alt/facebook) `v9.0.1`
-- [Firebase](https://github.com/dkimitsa/robovm-robopods/tree/alt/firebase/ios-storage) `v7.8.0`
+- [Firebase](https://github.com/dkimitsa/robovm-robopods/tree/alt/firebase) `v7.8.0`
 - [Fyber](https://github.com/dkimitsa/robovm-robopods/tree/alt/fyber) `v7.8.1`
 - [HelpShift](https://github.com/dkimitsa/robovm-robopods/blob/alt/helpshift) `v7.10.0`
 - [InMobi](https://github.com/dkimitsa/robovm-robopods/blob/alt/inmobi) `v9.1.5`
