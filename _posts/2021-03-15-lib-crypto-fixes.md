@@ -5,7 +5,7 @@ tags: ['fix']
 ---
 
 ## Background:
-[issue #557](http request memory corruption crash during SSL handshake ) http request memory corruption crash during SSL handshake.  
+[issue #557 http request memory corruption crash during SSL handshake](https://github.com/MobiVM/robovm/issues/557) http request memory corruption crash during SSL handshake.  
 Simple test case indeed caused the crash, code to reproduce is following:   
 <!-- more -->  
 ```java
