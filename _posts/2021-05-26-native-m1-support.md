@@ -94,7 +94,7 @@ enum PlatformType {
 `LC_BUILD_VERSION` replaced `LC_VERSION_MIN_IPHONEOS`. There is no support for this command in LLVM3.6 used with RoboVM. All required parts of code were borrowed from [LLVM12](https://github.com/llvm/llvm-project/tree/main/llvm) and added as [a patch](https://github.com/dkimitsa/robovm/commit/eb6d1f772c3fd3f79d52b79365e71d574963cc23). 
 
 #### Fun fact 1
-`LLVM12` is not able to compile apple asm file due missing corresponding branches in [bool DarwinAsmParser::parseBuildVersion](https://github.com/llvm/llvm-project/blob/632ebc4ab4374e53fce1ec870465c587e0a33668/llvm/lib/MC/MCParser/DarwinAsmParser.cpp#L1161):  
+`LLVM12` is not able to compile an apple asm file due missing corresponding branches in [bool DarwinAsmParser::parseBuildVersion](https://github.com/llvm/llvm-project/blob/632ebc4ab4374e53fce1ec870465c587e0a33668/llvm/lib/MC/MCParser/DarwinAsmParser.cpp#L1161):  
 > org.robovm.llvm.LlvmException: com.android.okhttp.HttpHandler:2:17: error: unknown platform name
 >    .build_version iossimulator, 14, 0
 
