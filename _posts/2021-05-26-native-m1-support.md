@@ -9,7 +9,8 @@ Apple Silicon proposed in [PR586](https://github.com/MobiVM/robovm/pull/586). It
 
 How fast it is (compiling classes using 8 threads): 
 > (Mac Mini m1):   Compiled 3317 classes in 36.45 seconds  
-> (Mac Pro W3565): Compiled 3317 classes in 111.60 seconds
+> (Mac Pro W3565): Compiled 3317 classes in 111.60 seconds  
+> (MacBook Pro, i5-4278U @ 4 threads): Compiled 3317 classes in 219.09 seconds  
 
 ## How to use   
 <!-- more -->
