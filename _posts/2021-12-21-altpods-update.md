@@ -3,7 +3,7 @@ layout: post
 title: 'AltPods: pods updated - 1.19.0-SNAPSHOT'
 tags: ['bro-gen', binding, robopods, altpods]
 ---
-AltPods were updated to v1.18.0-SNAPSHOT to sync with recent releases.
+AltPods were updated to v1.19.0-SNAPSHOT to sync with recent releases.
 
 ### Updated pods
 - [AppCenter](https://github.com/dkimitsa/robovm-robopods/tree/alt/appcenter) `v4.2.0` to `v4.4.1`
