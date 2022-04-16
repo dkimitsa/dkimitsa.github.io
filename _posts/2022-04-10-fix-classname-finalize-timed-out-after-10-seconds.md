@@ -4,7 +4,7 @@ title: 'Fix: TimeoutException $classname.finalize() timed out after 10 seconds'
 tags: [fix]
 ---
 
-This issue is rare and affects most user. It can be seen once registered [for default Java exception handler]({{ site.baseurl }}{% post_url ./2020-07-08-firebase-and-java-stacktraces %}).  
+This issue is rare and affects most user. It can be seen once registered [for default Java exception handler]({{ site.baseurl }}{% post_url 2020-07-08-firebase-and-java-stacktraces %}).  
 Scenario for this crash is following:  
 - iOS application goes to background/suspend (just enough to minimize it);
 - resumed after > 10s.
