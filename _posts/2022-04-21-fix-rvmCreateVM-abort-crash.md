@@ -29,7 +29,7 @@ Things changed once `Benjamin Schulte @MrStahlfelge` [reported](https://gitter.i
 
 # Root case
 <!-- more -->
-Issue was reproduced and stack trace for debug code looks more informative than production one (there is an issue[https://github.com/MobiVM/robovm/issues/522] for this):
+Issue was reproduced and stack trace for debug code looks more informative than production one (there is an [issue](https://github.com/MobiVM/robovm/issues/522) for this):
 > Assertion failed: (CLASS_IS_STATE_LOADED(clazz)), function rvmInitialize, file class.c, line 1173.
 
 And its actual state is `CLASS_STATE_ALLOCATED` which looks odd. Considering that `bcInitializeClass` logical steps looks as following:
