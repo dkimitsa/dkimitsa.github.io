@@ -6,7 +6,7 @@ tags: ['bro-gen', binding, robopods, altpods]
 AltPods were updated to v1.24.0-SNAPSHOT to sync with recent releases.
 
 ### Updated pods
-- [Adaptry](https://github.com/dkimitsa/robovm-robopods/tree/alt/adapty) `1.17.1` to `1.17.6`
+- [Adapty](https://github.com/dkimitsa/robovm-robopods/tree/alt/adapty) `1.17.1` to `1.17.6`
 - [AppLovinSDK](https://github.com/dkimitsa/robovm-robopods/tree/alt/applovinsdk) `v11.4.1` to `v11.4.3`
 - [BranchMetrics](https://github.com/dkimitsa/robovm-robopods/tree/alt/branchmetrics) `v1.42.0` to `v1.43.1`
 - [Facebook](https://github.com/dkimitsa/robovm-robopods/tree/alt/facebook) `v13.2.0` to `v14.1.0`
