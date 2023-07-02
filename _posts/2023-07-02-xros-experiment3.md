@@ -6,7 +6,6 @@ tags: [apple, xros, visionos, technote, llvm, robovmx]
 Experiment 3 of RoboVMx started to play with additional platforms (such as TvOS). There was an interest for use RoboVM with XrOS project in [gitter](https://matrix.to/#/!mqUEluorTjXZPncMfe:gitter.im/$aPrr1CbDPGU6hTaU1YK4UM8bpDq06gEe4iTSXDHzOSQ?via=gitter.im&via=matrix.org) recently and this looks like a good point to kick off this experiment.   
 VisionOS SKS are mostly swift based and this a problem to provide bindings to RoboVM. But anyway its good point to just get RoboVM Java VM code running in RxOS environment. 
 And first stage is to allow RoboVM to be available in Xcode project as framework.
-Experiment is focused first to 
 ## How to use
 <!-- more -->
 Sadly at moment of writing there was no `Xcode15 Beta2` Github Action runners available. 
