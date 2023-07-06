@@ -50,9 +50,11 @@ Running framework with included `robovm-debug` cause different kind of trouble:
 
 `EXC_BAD_ACCESS` is now converted into `SIGSEGV` as was promised. But Xcode is still not usable. 
 We have to configure XCode to don't stop on Signals that RoboVM handles: `SIGSEGV`, `SIGBUS`. For this following to be entered into `lldb` prompt when application is paused on Breakpoint (!):
-> process handle --pass true --stop false --notify true SIGSEGV  
-> process handle --pass true --stop false --notify true SIGBUS  
- 
+```
+ process handle --pass true --stop false --notify true SIGSEGV  
+ process handle --pass true --stop false --notify true SIGBUS  
+```
+
 There is a way to make these steps automatic on app launch:
 - create symbolic breakpoint for UIApplicationMain;
 - add two `Debugger command` actions to configure signals;
