@@ -21,6 +21,12 @@ AltPods were updated to v1.33.0-SNAPSHOT to sync with recent releases.
 - [Tenjin](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.33.0/tenjin/)               `1.12.25` to `1.12.27`
 - [UnityAds](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.33.0/unityads/)           `4.7.1` to `4.8.0`
 
+# new frameworks
+- Firebase/Installations
+- Facebook/Gaming Service Kit
+
+# Dropped support
+- Kochava SDKs
 
 These pods were pushed to `https://oss.sonatype.org/content/repositories/snapshots` maven repo under `1.33.0-SNAPSHOTS` version.
 [Source code @github](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.33.0)
