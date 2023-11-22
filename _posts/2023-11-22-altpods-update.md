@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'AltPods: pods updated - 1.34.0-SNAPSHOT'
+title: 'AltPods: pods updated - 1.35.0-SNAPSHOT'
 tags: ['bro-gen', binding, robopods, altpods]
 ---
 AltPods were updated to v1.35.0-SNAPSHOT to sync with recent releases.
