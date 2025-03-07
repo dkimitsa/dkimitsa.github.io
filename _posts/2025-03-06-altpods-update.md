@@ -12,6 +12,7 @@ Pay attention to `Google Mobile Ads` -- there is a lot of API changes.
 - [AppsFlyer](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.47.0/appsflyer)  `6.16.1`
 
 ### Updated pods
+- [BranchMetrics](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.47.0/branchmetrics/) `3.8.0` -> `3.10.0`
 - [Firebase](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.47.0/firebase/)     `11.7.0` -> `11.9.0`
 - [OneSignal](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.47.0/onesignal/)   `5.2.9` -> `5.2.10`
 - [IronSource](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.47.0/ironsource/)   `8.6.0` -> `v8.7.0`
