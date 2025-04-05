@@ -6,8 +6,6 @@ tags: ['bro-gen', binding, robopods, altpods]
 AltPods were updated to v1.48.0-SNAPSHOT to sync with recent releases.
 
 Not many changes this month. 
-Pay attention to `Google Mobile Ads` -- there is a lot of API changes. 
-
 
 ### Updated pods (ones with API changed)
 
