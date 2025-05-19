@@ -62,5 +62,5 @@ Project created from template -- automatically being attached with facet/sdk. In
 - Part of code was converted from Java to Kotlin.
 
 ### Code 
-Changes proposed as [PR785](https://github.com/MobiVM/robovm/pull/785)
+Changes proposed as [PR808](https://github.com/MobiVM/robovm/pull/808)
 
