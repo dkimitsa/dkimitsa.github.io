@@ -5,8 +5,6 @@ tags: ['bro-gen', binding, robopods, altpods]
 ---
 AltPods were updated to v1.49.0-SNAPSHOT to sync with recent releases.
 
-Not many changes this month. 
-
 ### Updated pods (ones with API changed)
 
 - [AppsFlyer](https://github.com/dkimitsa/robovm-robopods/tree/dev/v1.49.0/appsflyer)   `6.16.2` to `v6.17.0`
