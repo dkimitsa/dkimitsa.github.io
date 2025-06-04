@@ -31,7 +31,6 @@ Hitting this icon will trigger run cycle that will involve:
 
 Hope this plugin will be useful as for UI DSL development as for quick-and-dirty function run to check things. 
 
-## Source code and pre-build binary 
-
+## Source code and pre-build binary
 Source code and pre-built binaries pushed to stand-alone branch of [code-snippets](https://github.com/dkimitsa/codesnippets/tree/idea/plugin/unsafe-run) repo.
 
