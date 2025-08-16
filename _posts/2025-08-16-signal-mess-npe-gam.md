@@ -1,8 +1,9 @@
 ---
 layout: post
 title: 'Tracking slipped NPE, but in GAD v12.9.0'
-tags: [signal, npe, robovm, bug, 'google-mobile-ads'']
+tags: [signal, npe, robovm, bug, 'google-mobile-ads']
 ---
+
 `Tom-ski` have reported production level crash caused by `EXC_BAD_ACCESS` by java code inside try/catch block. It is well known issue of code like this:
 ```java
     public static void sayHello() {
