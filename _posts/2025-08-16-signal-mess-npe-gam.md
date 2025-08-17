@@ -175,7 +175,7 @@ Failure scenario:
 - signals are raised in both of these;
 - first thread restores valid previous handler, removes GAM from handling and calls it;
 - second thread processing signal as it was raised before removed by thread 1;
-- second thread restores NULL handlers (e.g. not RoboVM ones) and call it;
+- second thread restores 'saved_sa' with NULL handlers (e.g. previous RoboVM ones is lost) and call it;
 - crash
 
 
