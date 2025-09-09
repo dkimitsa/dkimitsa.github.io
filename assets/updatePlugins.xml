@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugins>
-    <plugin id="com.mobidevelop.robovm.intellij" url="https://github.com/dkimitsa/robovm-libcore10-smoketest/releases/download/10.0.1-SNAPSHOT/idea-10.0.1-SNAPSHOT.zip" version="10.0.1-SNAPSHOT">
+    <plugin id="com.mobidevelop.robovm.intellij" url="https://github.com/robovmx/robovmx/releases/download/x2-libcore12-v10.2.2.3-20250909/idea-10.2.2.4-SNAPSHOT.zip" version="10.2.2.4-SNAPSHOT">
         <idea-version since-build="192.3" />
         <name>RoboVM - Libcore 10</name>
         <description>
@@ -14,8 +14,8 @@
         </description>
         <change-notes>
             <![CDATA[
-            <b>10.0.1</b>
-            <li> First build with Libcore 10 POC </li>
+            <b>10.2.2.4</b>
+            <li> Synchronized with MobiVM 2.3.24 </li>
         ]]>
         </change-notes>
     </plugin>
