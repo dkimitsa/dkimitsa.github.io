@@ -2,7 +2,7 @@
 <plugins>
     <plugin id="com.mobidevelop.robovm.intellij" url="https://github.com/robovmx/robovmx/releases/download/x2-libcore12-v10.2.2.3-20250909/idea-10.2.2.4-SNAPSHOT.zip" version="10.2.2.4-SNAPSHOT">
         <idea-version since-build="192.3" />
-        <name>RoboVM - Libcore 10</name>
+        <name>RoboVMx</name>
         <description>
             <![CDATA[
             <p>
