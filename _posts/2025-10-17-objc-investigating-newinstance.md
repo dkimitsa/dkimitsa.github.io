@@ -4,7 +4,7 @@ title: 'ObjC interop: state lost - concurrency issues under heavy duty load'
 tags: [ObjC, bug]
 date: 2025-10-17 00:00:02
 ---
-As continue of [investigating deadlock]({{ site.baseurl }}{% post_url 2025-10-09-objc-investigating-deadlock %}):
+As continue of [investigating deadlock]({{ site.baseurl }}{% post_url 2025-10-17-objc-investigating-deadlock %}):
 
 `Thread #17` also displays strange stacktrace that normally should not happen:
 * native(ObjC code) calls `[myObject description]`;
