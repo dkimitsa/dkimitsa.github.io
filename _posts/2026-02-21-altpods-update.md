@@ -1,3 +1,4 @@
+---
 layout: post
 title: 'AltPods: pods updated - issue 1.57'
 tags: ['bro-gen', binding, robopods, altpods]
