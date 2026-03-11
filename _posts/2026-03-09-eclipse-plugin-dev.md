@@ -2,7 +2,6 @@
 layout: post
 title: 'Eclipse plugin: development and updates'
 tags: [eclipse, plugin]
-date: 2025-10-17 00:00:02
 ---
 Eclipse plugin for RoboVM is being maintained at low priority and there are no plans for major updates in the near future. More over it is not clear if it is being used at all. 
 Anyway meanwhile we keep it working and compatible with latest Eclipse versions. Below is the step-by-step instruction on how to set up development environment for it.
