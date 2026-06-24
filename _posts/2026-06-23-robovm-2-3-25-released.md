@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'RoboVM 2.3.26 release 
+title: 'RoboVM 2.3.26 release' 
 tags: [whatsnew]
 ---
 Idea plugin was submitted to [Idea Marketplace](https://plugins.jetbrains.com/plugin/14440-mobivm) and should be available soon.    
