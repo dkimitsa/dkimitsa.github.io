@@ -3,6 +3,9 @@ layout: post
 title: 'Compose UI with RoboVM'
 tags: [compose, kotlin, hacks, tutorial]
 ---
+
+TLTR: sample project - [codesnippets/compose-demo-app](https://github.com/dkimitsa/codesnippets/tree/sample/compose-demo-app).
+
 ![]({{ "/assets/2026/08/05/robovm-compose-demo.png"}})
 
 Compose Multiplatform has already been on iOS for a while. The issue is that it's powered by Kotlin Native, which means the Java ecosystem isn't available around it. 
