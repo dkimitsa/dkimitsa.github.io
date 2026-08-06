@@ -113,4 +113,4 @@ Adapt to `Java Virtual Machine Specification, 5.5`, and initialize any interface
 Sadly, we cannot mark classes as containing interfaces with default methods at compile time and check only those at runtime. 
 At the moment a class is being compiled, its dependencies are not yet compiled either, and they are scheduled only after the current class compilation finishes.
 
-Fix delivered as [PR#39](https://github.com/robovmx/robovmx/pull/39)
+Fix delivered as [PR #39](https://github.com/robovmx/robovmx/pull/39)
